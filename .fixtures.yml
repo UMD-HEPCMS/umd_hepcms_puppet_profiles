@@ -1,0 +1,63 @@
+fixtures:
+  repositories:
+    stdlib:
+      repo: https://github.com/puppetlabs/puppetlabs-stdlib
+      ref: 4.6.0
+    concat:
+      repo: https://github.com/puppetlabs/puppetlabs-concat
+    file_concat:
+      repo: https://github.com/electrical/puppet-lib-file_concat
+    firewall:
+      repo: https://github.com/puppetlabs/puppetlabs-firewall
+    apache:
+      repo: https://github.com/puppetlabs/puppetlabs-apache
+    mysql:
+      repo: https://github.com/puppetlabs/puppetlabs-mysql
+      ref: 3.3.0
+    inifile:
+      repo: https://github.com/puppetlabs/puppetlabs-inifile
+    puppetdb:
+      repo: https://github.com/puppetlabs/puppetlabs-puppetdb
+    ruby:
+      repo: https://github.com/puppetlabs/puppetlabs-ruby
+    xinetd:
+      repo: https://github.com/puppetlabs/puppetlabs-xinetd
+    augeasproviders_core:
+      repo: https://github.com/hercules-team/augeasproviders_core
+    augeasproviders_shellvar:
+      repo: https://github.com/hercules-team/augeasproviders_shellvar
+    concat_native:
+      repo: https://github.com/theforeman/puppet-concat
+    git:
+      repo: https://github.com/theforeman/puppet-git
+    dhcp:
+      repo: https://github.com/theforeman/puppet-dhcp
+    dns:
+      repo: https://github.com/theforeman/puppet-dns
+    tftp:
+      repo: https://github.com/theforeman/puppet-tftp
+    foreman:
+      repo: https://github.com/theforeman/puppet-foreman
+    foreman_proxy:
+      repo: https://github.com/theforeman/puppet-foreman_proxy
+    puppet:
+      repo: https://github.com/theforeman/puppet-puppet
+    staging:
+      repo: https://github.com/nanliu/puppet-staging
+    epel:
+      repo: https://github.com/stahnma/puppet-module-epel
+    dnsclient:
+      repo: https://github.com/ghoneycutt/puppet-module-dnsclient
+    sudo:
+      repo: https://github.com/saz/puppet-sudo
+      ref: v3.0.1
+    r10k:
+      repo: https://github.com/acidprime/r10k
+    cron:
+      repo: https://github.com/treydock/puppet-cron
+    iptables:
+      repo: https://github.com/treydock/puppet-iptables
+    osg:
+      repo: https://github.com/treydock/puppet-osg
+  symlinks:
+    profile: "#{source_dir}"
