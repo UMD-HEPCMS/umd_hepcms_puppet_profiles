@@ -5,9 +5,9 @@ class profile::base inherits profile::params {
     nameservers => $profile::params::nameservers,
   }
 
-  class { 'firewall': }
-  class { 'iptables': }
-
+  include epel
+  include firewall
+  include iptables
   include puppet
 
 }

@@ -4,7 +4,9 @@ class profile::puppetmaster inherits profile::params {
   include ::r10K
 
   class { '::puppet':
-    server => true,
+    server                     => true,
+    server_implementation      => 'puppetserver',
+    server_common_modules_path => ['/etc/puppet/modules', '/usr/share/puppet/modules'],
   }
 
   file { '/etc/hiera.yaml':
