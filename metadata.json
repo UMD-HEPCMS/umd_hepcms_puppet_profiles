@@ -1,13 +1,13 @@
 {
-  "name": "treydock-osg_cluster_profiles",
+  "name": "treydock-umd_hepcms_puppet_profiles",
   "version": "0.0.1",
   "author": "treydock",
-  "summary": "osg_cluster_profiles module",
+  "summary": "UMD HEPCMS puppet profiles module",
   "license": "Apache-2.0",
-  "source": "git://github.com/treydock/puppet-module-osg_cluster_profiles.git",
-  "description": "osg_cluster_profiles module",
-  "issues_url": "https://github.com/treydock/puppet-module-osg_cluster_profiles/issues",
-  "project_page": "http://github.com/treydock/puppet-module-osg_cluster_profiles",
+  "source": "git://github.com/UMD-HEPCMS/umd_hepcms_puppet_profiles.git",
+  "description": "UMD HEPCMS puppet profiles module",
+  "issues_url": "https://github.com/UMD-HEPCMS/umd_hepcms_puppet_profiles/issues",
+  "project_page": "http://github.com/UMD-HEPCMS/umd_hepcms_puppet_profiles",
   "tags": [ "hpc", "profile", "osg" ],
   "operatingsystem_support": [
     {
