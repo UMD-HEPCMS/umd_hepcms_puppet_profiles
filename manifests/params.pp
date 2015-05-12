@@ -19,4 +19,7 @@ class profile::params {
   } else {
     $nameservers = $_nameservers
   }
+
+  $puppetmaster = hiera('puppet::puppetmaster', "puppet.${::domain}")
+
 }
