@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'profile::base' do
+describe 'profile::puppet::server' do
   on_supported_os.each do |os, facts|
     context "on #{os}" do
       let(:facts) do
@@ -11,9 +11,12 @@ describe 'profile::base' do
       let(:params) {{ }}
 
       it { should compile.with_all_deps }
-      it { should create_class('profile::base') }
+      it { should create_class('profile::puppet::server') }
 
-      it { should contain_class('dnsclient') }
+      it { should contain_class('puppet').with({
+        :server => 'true',
+      })}
+
     end
   end
 end

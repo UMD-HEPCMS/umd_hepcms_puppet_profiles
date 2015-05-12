@@ -8,6 +8,5 @@ class profile::base inherits profile::params {
   include epel
   include firewall
   include iptables
-  include puppet
 
 }
