@@ -10,8 +10,8 @@ describe 'profile::foreman_proxy' do
       end
       let(:params) {{ }}
 
-      # Can't use .with_all_deps here due to odd name given to /etc/sudoers.d/ in sudo module instead of /etc/sudoers.d
-      it { should compile }
+      it { should compile.with_all_deps }
+      it { should contain_class('sudo').with_config_dir('/etc/sudoers.d') }
       it { should create_class('profile::foreman_proxy') }
     end
   end
