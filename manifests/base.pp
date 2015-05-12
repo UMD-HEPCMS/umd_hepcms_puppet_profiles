@@ -8,8 +8,8 @@ class profile::base inherits profile::params {
   }
 
   filebucket { 'main':
-    server  => $profile::params::puppetmaster,
-    path    => false,
+    server => $profile::params::puppetmaster,
+    path   => false,
   }
 
   File { backup => 'main' }
