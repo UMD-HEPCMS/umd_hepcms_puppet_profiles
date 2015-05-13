@@ -2,7 +2,6 @@
 class profile::foreman inherits profile::params {
 
   include ::epel
-  include ::mysql::server::backup
 
   package { 'centos-release-SCL':
     ensure => 'installed',

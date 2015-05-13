@@ -2,4 +2,7 @@
 foreman_proxy::dhcp_managed: false
 foreman_proxy::dns_managed: false
 foreman_proxy::manage_sudoersd: false
+mysql::server::backup::backupdir: /opt/mysql_backups
+mysql::server::backup::backuppassword: test
+mysql::server::backup::backupuser: backup-user
 sudo::config_dir: '/etc/sudoers.d'
