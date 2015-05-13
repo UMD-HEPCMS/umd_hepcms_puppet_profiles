@@ -1,11 +1,14 @@
 # == Class: profile::dhcp::server
 class profile::dhcp::server inherits profile::params {
 
+  include profile::foreman_proxy
+
   class { '::dhcp':
     interfaces  => [
       $profile::params::internal_interface,
     ],
     nameservers => $profile::params::nameservers,
+    before      => Class['foreman_proxy']
   }
 
   $dhcp_hosts = hiera('dhcp_hosts', {})

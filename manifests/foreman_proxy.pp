@@ -2,12 +2,9 @@
 class profile::foreman_proxy inherits profile::params {
 
   include ::sudo
+  include ::foreman_proxy
 
-  class { '::foreman_proxy':
-    dhcp_managed    => false,
-    dns_managed     => false,
-    manage_sudoersd => false,
-  }
+  Class['sudo'] -> Class['foreman_proxy']
 
   firewall { '100 allow foreman-proxy':
     chain  => 'INPUT',

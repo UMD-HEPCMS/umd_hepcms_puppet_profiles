@@ -1,2 +1,5 @@
 ---
+foreman_proxy::dhcp_managed: false
+foreman_proxy::dns_managed: false
+foreman_proxy::manage_sudoersd: false
 sudo::config_dir: '/etc/sudoers.d'

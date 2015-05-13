@@ -1,7 +1,10 @@
 # == Class: profile::dns::server
 class profile::dns::server inherits profile::params {
 
+  include profile::foreman_proxy
   include ::dns
+
+  Class['dns'] -> Class['foreman_proxy']
 
   $dns_zones = hiera('dns_zones', {})
   create_resources('dns::zone', $dns_zones)

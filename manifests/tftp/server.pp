@@ -1,7 +1,10 @@
 # == Class: profile::tftp::server
 class profile::tftp::server inherits profile::params {
 
+  include profile::foreman_proxy
   include ::tftp
+
+  Class['tftp'] -> Class['foreman_proxy']
 
   firewall { '100 allow internal tftp':
     chain   => 'INPUT',
