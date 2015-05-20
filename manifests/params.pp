@@ -20,6 +20,7 @@ class profile::params {
     $nameservers = $_nameservers
   }
 
-  $puppetmaster = hiera('puppet::puppetmaster', "puppet.${::domain}")
+  $foreman_host = hiera_undef('foreman_host')
+  $puppetmaster = hiera_undef('puppet::puppetmaster')
 
 }

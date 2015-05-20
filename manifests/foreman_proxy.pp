@@ -11,6 +11,7 @@ class profile::foreman_proxy inherits profile::params {
     port   => '8443',
     proto  => 'tcp',
     action => 'accept',
+    source => $profile::params::foreman_host,
   }
 
 }
