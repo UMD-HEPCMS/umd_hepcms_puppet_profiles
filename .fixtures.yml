@@ -5,6 +5,7 @@ fixtures:
       ref: 4.6.0
     concat:
       repo: https://github.com/puppetlabs/puppetlabs-concat
+      branch: 1.2.x
     file_concat:
       repo: https://github.com/electrical/puppet-lib-file_concat
     firewall:
@@ -59,6 +60,9 @@ fixtures:
       repo: https://github.com/treydock/puppet-cron
     iptables:
       repo: https://github.com/treydock/puppet-iptables
+    nfs:
+      repo: https://github.com/treydock/puppet-nfs
+      branch: 1.x
     omsa:
       repo: https://github.com/treydock/puppet-module-omsa
     osg:
