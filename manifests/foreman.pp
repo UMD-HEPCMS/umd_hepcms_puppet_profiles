@@ -17,6 +17,8 @@ class profile::foreman inherits profile::params {
     require             => [ Package['yum-conf-softwarecollections'], Class['epel'] ]
   }
 
+  include ::foreman::compute::ovirt
+
   firewall { '100 allow HTTP':
     chain  => 'INPUT',
     port   => '80',

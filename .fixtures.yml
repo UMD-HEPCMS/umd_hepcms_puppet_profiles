@@ -31,8 +31,8 @@ fixtures:
       repo: https://github.com/hercules-team/augeasproviders_core
     augeasproviders_shellvar:
       repo: https://github.com/hercules-team/augeasproviders_shellvar
-    concat_native:
-      repo: https://github.com/theforeman/puppet-concat
+    #concat_native:
+    #  repo: https://github.com/theforeman/puppet-concat
     git:
       repo: https://github.com/theforeman/puppet-git
     dhcp:
@@ -43,6 +43,7 @@ fixtures:
       repo: https://github.com/theforeman/puppet-tftp
     foreman:
       repo: https://github.com/theforeman/puppet-foreman
+      ref: 3032c86
     foreman_proxy:
       repo: https://github.com/theforeman/puppet-foreman_proxy
     puppet:
