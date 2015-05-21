@@ -1,66 +1,108 @@
 fixtures:
   repositories:
-    stdlib:
-      repo: https://github.com/puppetlabs/puppetlabs-stdlib
-      ref: 4.6.0
-    concat:
-      repo: https://github.com/puppetlabs/puppetlabs-concat
-      branch: 1.2.x
-    file_concat:
-      repo: https://github.com/electrical/puppet-lib-file_concat
-    firewall:
-      repo: https://github.com/puppetlabs/puppetlabs-firewall
+    # puppetlabs modules
+    activemq:
+      repo: https://github.com/puppetlabs/puppetlabs-activemq
+      ref: 0.4.0
     apache:
       repo: https://github.com/puppetlabs/puppetlabs-apache
+      ref: 1.4.1
+    concat:
+      repo: https://github.com/puppetlabs/puppetlabs-concat
+      ref: 1.2.1
+    inifile:
+      repo: https://github.com/puppetlabs/puppetlabs-inifile
+      ref: 1.2.0
+    firewall:
+      repo: https://github.com/puppetlabs/puppetlabs-firewall
+      ref: 1.5.0
+    gcc:
+      repo: https://github.com/puppetlabs/puppetlabs-gcc
+      ref: 0.3.0
+    git:
+      repo: https://github.com/puppetlabs/puppetlabs-git
+      ref: 0.3.0
+    java:
+      repo: https://github.com/puppetlabs/puppetlabs-java
+      ref: 1.1.1
+    java_ks:
+      repo: https://github.com/puppetlabs/puppetlabs-java_ks
+      ref: 1.3.0
     mysql:
       repo: https://github.com/puppetlabs/puppetlabs-mysql
       ref: 3.3.0
-    inifile:
-      repo: https://github.com/puppetlabs/puppetlabs-inifile
     ntp:
       repo: https://github.com/puppetlabs/puppetlabs-ntp
-    puppetdb:
-      repo: https://github.com/puppetlabs/puppetlabs-puppetdb
+      ref: 3.3.0
     postgresql:
       repo: https://github.com/puppetlabs/puppetlabs-postgresql
+      ref: 4.3.0
+    puppetdb:
+      repo: https://github.com/puppetlabs/puppetlabs-puppetdb
+      ref: 4.2.1
     ruby:
       repo: https://github.com/puppetlabs/puppetlabs-ruby
+      ref: 0.4.0
+    stdlib:
+      repo: https://github.com/puppetlabs/puppetlabs-stdlib
+      ref: 4.6.0
     xinetd:
       repo: https://github.com/puppetlabs/puppetlabs-xinetd
-    augeasproviders_core:
-      repo: https://github.com/hercules-team/augeasproviders_core
-    augeasproviders_shellvar:
-      repo: https://github.com/hercules-team/augeasproviders_shellvar
-    #concat_native:
-    #  repo: https://github.com/theforeman/puppet-concat
-    git:
-      repo: https://github.com/theforeman/puppet-git
+      ref: 1.5.0
+
+    # theforeman modules
     dhcp:
       repo: https://github.com/theforeman/puppet-dhcp
+      ref: 295caaf
     dns:
       repo: https://github.com/theforeman/puppet-dns
-    tftp:
-      repo: https://github.com/theforeman/puppet-tftp
+      ref: b132780
     foreman:
       repo: https://github.com/theforeman/puppet-foreman
       ref: 3032c86
     foreman_proxy:
       repo: https://github.com/theforeman/puppet-foreman_proxy
+      ref: 2.2.2
     puppet:
       repo: https://github.com/theforeman/puppet-puppet
-    staging:
-      repo: https://github.com/nanliu/puppet-staging
-    epel:
-      repo: https://github.com/stahnma/puppet-module-epel
+      ref: a7e0b7b
+    tftp:
+      repo: https://github.com/theforeman/puppet-tftp
+      ref: 1.5.1
+
+    # community modules
+    augeasproviders_core:
+      repo: https://github.com/hercules-team/augeasproviders_core
+      ref: 2.1.1
+    augeasproviders_grub:
+      repo: https://github.com/hercules-team/augeasproviders_grub
+      ref: 2.0.1
+    augeasproviders_shellvar:
+      repo: https://github.com/hercules-team/augeasproviders_shellvar
+      ref: 2.1.1
+    augeasproviders_sysctl:
+      repo: https://github.com/hercules-team/augeasproviders_sysctl
+      ref: 2.0.2
     dnsclient:
       repo: https://github.com/ghoneycutt/puppet-module-dnsclient
-    sudo:
-      repo: https://github.com/saz/puppet-sudo
-      ref: v3.0.1
-    r10k:
-      repo: https://github.com/acidprime/r10k
+      ref: v3.3.0
+    epel:
+      repo: https://github.com/stahnma/puppet-module-epel
+      ref: 1.0.2
     hiera_undef:
       repo: https://github.com/camptocamp/puppet-hiera-undef
+      ref: 1.1.11
+    r10k:
+      repo: https://github.com/acidprime/r10k
+      ref: v2.7.4
+    staging:
+      repo: https://github.com/nanliu/puppet-staging
+      ref: 1.0.3
+    sudo:
+      repo: https://github.com/saz/puppet-sudo
+      ref: v3.0.9
+
+    # modules not yet in forge
     cron:
       repo: https://github.com/treydock/puppet-cron
     iptables:
