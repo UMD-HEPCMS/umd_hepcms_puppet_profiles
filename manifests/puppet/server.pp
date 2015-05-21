@@ -16,10 +16,10 @@ class profile::puppet::server inherits profile::params {
   }
 
   firewall { '100 allow puppetmaster':
-    chain   => 'INPUT',
-    port    => '8140',
-    proto   => 'tcp',
-    action  => 'accept',
+    chain  => 'INPUT',
+    port   => '8140',
+    proto  => 'tcp',
+    action => 'accept',
     #iniface => $profile::params::internal_interface,
     #source  => $profile::params::internal_subnet,
   }
