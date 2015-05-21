@@ -22,4 +22,7 @@ class profile::params {
   # Hiera
   $hiera_eyaml_key_dir = hiera('hiera_eyaml_key_dir', '/etc/puppet/secure/keys')
 
+  # oVirt
+  $ovirt_base_storage_path = hiera('ovirt_base_storage_path', '/opt/ovirt')
+
 }

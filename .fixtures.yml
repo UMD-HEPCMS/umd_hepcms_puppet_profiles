@@ -21,6 +21,8 @@ fixtures:
       repo: https://github.com/puppetlabs/puppetlabs-ntp
     puppetdb:
       repo: https://github.com/puppetlabs/puppetlabs-puppetdb
+    postgresql:
+      repo: https://github.com/puppetlabs/puppetlabs-postgresql
     ruby:
       repo: https://github.com/puppetlabs/puppetlabs-ruby
     xinetd:
@@ -71,5 +73,6 @@ fixtures:
       repo: https://github.com/treydock/puppet-osg
     ovirt:
       repo: https://github.com/treydock/puppet-ovirt
+      branch: 1.x
   symlinks:
     profile: "#{source_dir}"
