@@ -17,6 +17,8 @@ fixtures:
       ref: 3.3.0
     inifile:
       repo: https://github.com/puppetlabs/puppetlabs-inifile
+    ntp:
+      repo: https://github.com/puppetlabs/puppetlabs-ntp
     puppetdb:
       repo: https://github.com/puppetlabs/puppetlabs-puppetdb
     ruby:

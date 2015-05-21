@@ -11,7 +11,7 @@
   "tags": [ "hpc", "profile", "osg" ],
   "operatingsystem_support": [
     {
-      "operatingsystem": "CentOS",
+      "operatingsystem": "Scientific",
       "operatingsystemrelease": [ "6" ]
     }
   ],

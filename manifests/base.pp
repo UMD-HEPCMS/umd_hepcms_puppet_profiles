@@ -30,6 +30,7 @@ class profile::base inherits profile::params {
   include epel
   include firewall
   include iptables
+  include ntp
   include sudo
 
   # Modules only applied to systems based on facts - these determinations are done by the module
