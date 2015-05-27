@@ -24,6 +24,11 @@ class profile::base inherits profile::params {
 
   # Define classes
   class { 'dnsclient':
+    search      => [
+      $profile::params::internal_domain,
+      $profile::params::external_domain,
+    ],
+    domain      => $profile::params::domain,
     nameservers => $profile::params::nameservers,
   }
 

@@ -2,9 +2,13 @@
 class profile::dns::server inherits profile::params {
 
   include profile::foreman_proxy
-  include ::dns
 
   Class['dns'] -> Class['foreman_proxy']
+
+
+  class { '::dns':
+    forwarders => $profile::params::external_nameservers,
+  }
 
   $dns_zones = hiera('dns_zones', {})
   create_resources('dns::zone', $dns_zones)

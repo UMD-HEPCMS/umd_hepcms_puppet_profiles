@@ -9,7 +9,7 @@ fixtures:
       ref: 1.4.1
     concat:
       repo: https://github.com/puppetlabs/puppetlabs-concat
-      ref: 1.2.1
+      ref: 1.2.2
     inifile:
       repo: https://github.com/puppetlabs/puppetlabs-inifile
       ref: 1.2.0
