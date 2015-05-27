@@ -7,7 +7,7 @@ class profile::dhcp::server inherits profile::params {
     interfaces  => [
       $profile::params::internal_interface,
     ],
-    dnsdomain   => $profile::params::internal_domain,
+    dnsdomain   => [$profile::params::internal_domain],
     nameservers => $profile::params::internal_nameservers,
     before      => Class['foreman_proxy']
   }
