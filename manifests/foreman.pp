@@ -18,6 +18,7 @@ class profile::foreman inherits profile::params {
   }
 
   include ::foreman::compute::ovirt
+  include ::foreman::plugin::templates
 
   firewall { '100 allow HTTP':
     chain  => 'INPUT',
