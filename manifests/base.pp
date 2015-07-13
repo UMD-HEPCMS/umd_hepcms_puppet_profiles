@@ -41,7 +41,10 @@ class profile::base inherits profile::params {
   # Modules only applied to systems based on facts - these determinations are done by the module
   include omsa
   include ovirt::guest
-
+  
+  $extra_packages = hiera_array('extra_packages', [])
+  ensure_packages($extra_packages)
+  
   sudo::conf { 'wheel':
     priority => '10',
     content  => '%wheel ALL=(ALL) ALL'
