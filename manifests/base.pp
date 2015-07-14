@@ -15,9 +15,9 @@ class profile::base inherits profile::params {
   File { backup => 'main' }
 
   # Fix deprecation warnings for Puppet >= 3.6.1
-  Package {
-    allow_virtual => true,
-  }
+  #Package {
+  #     allow_virtual => true,
+  #}
 
   # Apply all yumrepo resources before packages
   Yumrepo <| |> -> Package <| |>
@@ -44,6 +44,10 @@ class profile::base inherits profile::params {
   
   $extra_packages = hiera_array('extra_packages', [])
   ensure_packages($extra_packages)
+
+  class { '::timezone':
+    timezone => 'America/New_York',
+  }
   
   sudo::conf { 'wheel':
     priority => '10',
