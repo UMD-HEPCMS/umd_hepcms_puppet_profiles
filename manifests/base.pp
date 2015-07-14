@@ -29,7 +29,7 @@ class profile::base inherits profile::params {
       $profile::params::external_domain,
     ],
     domain      => $profile::params::domain,
-    nameservers => $profile::params::nameservers,
+    nameservers => $profile::params::internal_nameservers,
   }
 
   include epel
