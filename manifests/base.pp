@@ -48,6 +48,9 @@ class profile::base inherits profile::params {
   class { '::timezone':
     timezone => 'America/New_York',
   }
+# add in firewall rules resource (11 Aug 2015)  
+$firewall_rules = hiera_hash('firewall_rules', {})
+create_resources('firewall', $firewall_rules)
 
   sudo::conf { 'wheel':
     priority => '10',
