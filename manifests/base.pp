@@ -6,6 +6,9 @@ class profile::base inherits profile::params {
     before  => Class['iptables::post'],
     require => Class['iptables::pre'],
   }
+# add in firewall rules resource (11 Aug 2015)  
+$firewall_rules = hiera_hash('firewall_rules', {})
+create_resources('firewall', $firewall_rules)
 
   filebucket { 'main':
     server => $profile::params::puppetmaster,
@@ -31,6 +34,9 @@ class profile::base inherits profile::params {
     domain      => $profile::params::domain,
     nameservers => $profile::params::internal_nameservers,
   }
+include ::facter
+include ::puppetlabs_yum
+Class['::puppetlabs_yum'] -> Class['::facter']
 
   include epel
   include firewall
@@ -48,9 +54,6 @@ class profile::base inherits profile::params {
   class { '::timezone':
     timezone => 'America/New_York',
   }
-# add in firewall rules resource (11 Aug 2015)  
-$firewall_rules = hiera_hash('firewall_rules', {})
-create_resources('firewall', $firewall_rules)
 
   sudo::conf { 'wheel':
     priority => '10',
