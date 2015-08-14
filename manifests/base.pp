@@ -37,6 +37,7 @@ create_resources('firewall', $firewall_rules)
 include ::facter
 include ::puppetlabs_yum
 Class['::puppetlabs_yum'] -> Class['::facter']
+  include ::selinux
 
   include epel
   include firewall
