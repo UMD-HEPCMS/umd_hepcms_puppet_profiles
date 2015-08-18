@@ -38,6 +38,8 @@ include ::facter
 include ::puppetlabs_yum
 Class['::puppetlabs_yum'] -> Class['::facter']
   include ::selinux
+# NIS (rpcbind needed for nisclient module)
+# already declared in nfs install.pp  include ::rpcbind
   include ::nisclient
   class{ '::nisclient':
      domainname => 'nishepcms.privnet',
