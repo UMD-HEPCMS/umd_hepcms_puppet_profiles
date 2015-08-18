@@ -42,7 +42,7 @@ Class['::puppetlabs_yum'] -> Class['::facter']
    class{ 'authconfig' :
       passalgo => 'md5',
       nis => true,
-      nisdommain => 'nishepcms.privnet',
+      nisdomain => 'nishepcms.privnet',
       nisserver => '10.1.0.1',
    }
  
