@@ -39,11 +39,11 @@ include ::puppetlabs_yum
 Class['::puppetlabs_yum'] -> Class['::facter']
   include ::selinux
 # NIS (nisclient module)
-#   include ::nisclient
-#   class{ '::nisclient':
-#      domainname => 'nishepcms.privnet',
-#      server => '10.1.0.1',
-#   }
+   include ::nisclient
+   class{ '::nisclient':
+      domainname => 'nishepcms.privnet',
+      server => '10.1.0.1',
+   }
  
   include epel
   include firewall
