@@ -44,6 +44,11 @@ Class['::puppetlabs_yum'] -> Class['::facter']
       domainname => 'nishepcms.privnet',
       server => '10.1.0.1',
    }
+   class{ 'authconfig' :
+      passalgo => 'md5',
+      locauthorize => false,
+      fingerprint => false,
+   }
  
   include epel
   include firewall
