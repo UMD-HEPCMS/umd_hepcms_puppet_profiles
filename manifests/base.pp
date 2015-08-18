@@ -45,7 +45,6 @@ Class['::puppetlabs_yum'] -> Class['::facter']
       nisdomain => 'nishepcms.privnet',
       nisserver => '10.1.0.1',
       fingerprint => default,
-      locauthorize => default,
    }
  
   include epel
