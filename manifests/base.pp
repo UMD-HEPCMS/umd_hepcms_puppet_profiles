@@ -44,6 +44,7 @@ Class['::puppetlabs_yum'] -> Class['::facter']
       nis => true,
       nisdomain => 'nishepcms.privnet',
       nisserver => '10.1.0.1',
+      fingerprint => false,
    }
  
   include epel
