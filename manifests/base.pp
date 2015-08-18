@@ -46,6 +46,9 @@ Class['::puppetlabs_yum'] -> Class['::facter']
    }
    class{ 'authconfig' :
       passalgo => 'md5',
+      locauthorize_flg => false,
+      fingerprint_flg => false,
+      nis_flags => true,
    }
  
   include epel
