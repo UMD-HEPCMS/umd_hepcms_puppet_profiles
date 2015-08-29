@@ -74,6 +74,16 @@ Class['::puppetlabs_yum'] -> Class['::facter']
     ensure => 'symlink',
     target => '/data/hadoop/store',
   }
+  file { "/sharesoft":
+    ensure => "directory",
+  } 
+  file { "/sharesoft/osg":
+    ensure => "directory",
+  }    
+  file { '/sharesoft/osg/ce':
+    ensure => 'symlink',
+    target => '/data/osg/scripts/',
+  }  
   class { '::timezone':
     timezone => 'America/New_York',
   }
