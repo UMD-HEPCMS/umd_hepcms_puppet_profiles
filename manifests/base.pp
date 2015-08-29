@@ -62,7 +62,18 @@ Class['::puppetlabs_yum'] -> Class['::facter']
 
   $extra_packages = hiera_array('extra_packages', [])
   ensure_packages($extra_packages)
- 
+# make symlink 
+# http://www.puppetcookbook.com/posts/creating-a-symlink.html
+# ln -s /data/hadoop /hadoop
+# ln -s /data/hadoop/store /store 
+  file { '/hadoop':
+    ensure => 'symlink',
+    target => '/data/hadoop',
+  }
+  file { '/store':
+    ensure => 'symlink',
+    target => '/data/hadoop/store',
+  }
   class { '::timezone':
     timezone => 'America/New_York',
   }
