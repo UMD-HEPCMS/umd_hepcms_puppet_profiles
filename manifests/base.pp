@@ -84,6 +84,10 @@ Class['::puppetlabs_yum'] -> Class['::facter']
     ensure => 'symlink',
     target => '/data/osg/scripts/',
   }  
+  file { '/sharesoft/cmssw':
+    ensure => 'symlink',
+    target => '/cvmfs/cms.cern.ch',
+  }
   class { '::timezone':
     timezone => 'America/New_York',
   }
