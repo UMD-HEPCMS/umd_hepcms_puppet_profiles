@@ -96,5 +96,6 @@ Class['::puppetlabs_yum'] -> Class['::facter']
     priority => '10',
     content  => '%wheel ALL=(ALL) ALL'
   }
-
+# hiera_include https://docs.puppetlabs.com/hiera/1/complete_example.html#using-hierainclude
+  hiera_include('classes')
 }
