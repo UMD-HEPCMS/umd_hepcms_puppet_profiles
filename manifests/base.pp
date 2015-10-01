@@ -98,5 +98,5 @@ Class['::puppetlabs_yum'] -> Class['::facter']
   }
 #  hiera_include('classes')
 ### If NetworkManager is running it will screw up /etc/resolv.conf
-service { 'NetworkManager': ensure => 'stopped', enable => false } `
+service { 'NetworkManager': ensure => 'stopped', enable => false }
 }
