@@ -9,13 +9,14 @@ class profile::osg::hadoop_client {
     ensure     => 'present',
     name       => 'hdfs',
     uid        => $hdfs_uid,
-    gid        => $hdfs_gid,
+    gid        => hadoop,
     home       => '/home/hdfs', # wherever package puts $HOME for user
     shell      => '/bin/bash', # /bin/bash or /sbin/nologin
     system     => true,
     comment    => 'hdfs user synchronized across all systems',
     managehome => false,
-    before     => Package['hdfs']
+    before     => Package['hdfs'],
+    forcelocal => true
   }
 
   group { 'hadoop':
@@ -23,6 +24,7 @@ class profile::osg::hadoop_client {
     name   => 'hadoop',
     gid    => $hdfs_gid,
     system => true,
+    forcelocal => true
   }
 
   package { 'osg-se-hadoop-client':
