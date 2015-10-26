@@ -15,7 +15,7 @@ class profile::osg::hadoop_client {
     system     => true,
     comment    => 'hdfs user synchronized across all systems',
     managehome => false,
-    before     => Package['hdfs'],
+    before     => Package['osg-se-hadoop-client'],
     forcelocal => true
   }
 
