@@ -1,7 +1,7 @@
 # manifests/osg/hadoop_client.pp
 class profile::osg::hadoop_client {
   $hdfs_uid = hiera('hdfs_uid', '1100') 
-  $hdfs_gid = hiera('hdfs_gid', '496')
+  $hdfs_gid = hiera('hdfs_gid', '480')
 
   include ::osg # only if package comes from OSG repos, ensures the "require" for package will work.
 
