@@ -31,4 +31,8 @@ class profile::osg::hadoop_client {
     ensure  => 'installed',
     require => Yumrepo['osg'], # If the package comes from OSG repos, then may also want to include OSG class 
   }
+  file { '/etc/hadoop/conf/hadoop-env.sh':
+    ensure => 'present',
+    content => 'export HADOOP_LOG_DIR=/scratch/hadoop/hadoop-hdfs\n',
+  }
 }
