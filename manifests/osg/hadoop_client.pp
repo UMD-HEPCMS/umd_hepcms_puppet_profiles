@@ -33,6 +33,6 @@ class profile::osg::hadoop_client {
   }
   file { '/etc/hadoop/conf/hadoop-env.sh':
     ensure => 'present',
-    content => 'export HADOOP_LOG_DIR=/scratch/hadoop/hadoop-hdfs\n',
+    content => 'export HADOOP_LOG_DIR=/scratch/hadoop/hadoop-hdfs',
   }
 }
