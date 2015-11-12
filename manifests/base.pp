@@ -99,4 +99,8 @@ Class['::puppetlabs_yum'] -> Class['::facter']
 #  hiera_include('classes')
 ### If NetworkManager is running it will screw up /etc/resolv.conf
 service { 'NetworkManager': ensure => 'stopped', enable => false }
+## turn off yum auto updates
+class { 'yum_cron':
+  yum_autoupdate_ensure => 'absent'
+}
 }
