@@ -64,15 +64,15 @@ Class['::puppetlabs_yum'] -> Class['::facter']
   ensure_packages($extra_packages)
 # make symlink 
 # http://www.puppetcookbook.com/posts/creating-a-symlink.html
-# ln -s /data/hadoop /hadoop
-# ln -s /data/hadoop/store /store 
+# ln -s /mnt/hadoop /hadoop
+# ln -s /mnt/hadoop/cms/store /store 
   file { '/hadoop':
     ensure => 'symlink',
-    target => '/data/hadoop',
+    target => '/mnt/hadoop',
   }
   file { '/store':
     ensure => 'symlink',
-    target => '/data/hadoop/store',
+    target => '/mnt/hadoop/cms/store',
   }
   file { "/sharesoft":
     ensure => "directory",
