@@ -34,5 +34,18 @@ class profile::osg::hadoop_client {
   file { '/etc/hadoop/conf/hadoop-env.sh':
     ensure => 'present',
     content => 'export HADOOP_LOG_DIR=/scratch/hadoop/hadoop-hdfs',
+	require => Package['osg-se-hadoop-client']    
   }
+# hadoop mountpoint
+  file { "/mnt/hadoop": ensure => directory }
+  mount { "mount_hadoop":
+    name    => "/mnt/hadoop",
+	device  => "hadoop-fuse-dfs",
+	fstype  => "fuse",
+	ensure  => mounted,
+	options => "server=hepcms-namenode.privnet,port=9000,rdbuffer=131072,allow_other",
+	atboot  => true,
+	remounts => false,
+	require => [ File["/mnt/hadoop"] ],
+  } 
 }
