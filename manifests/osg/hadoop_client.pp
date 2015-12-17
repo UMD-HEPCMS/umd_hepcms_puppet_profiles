@@ -47,5 +47,6 @@ class profile::osg::hadoop_client {
 	atboot  => true,
 	remounts => false,
 	require => [ File["/mnt/hadoop"] ],
+	require => Package['osg-se-hadoop-client']
   } 
 }
