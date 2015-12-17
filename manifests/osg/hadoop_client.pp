@@ -46,7 +46,6 @@ class profile::osg::hadoop_client {
 	options => "server=hepcms-namenode.privnet,port=9000,rdbuffer=131072,allow_other",
 	atboot  => true,
 	remounts => false,
-	require => [ File["/mnt/hadoop"] ],
-	require => Package['osg-se-hadoop-client']
+	require => [ File["/mnt/hadoop"], Package['osg-se-hadoop-client'], ]
   } 
 }
