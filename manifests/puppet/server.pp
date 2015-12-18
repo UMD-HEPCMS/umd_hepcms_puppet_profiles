@@ -3,12 +3,13 @@ class profile::puppet::server inherits profile::params {
 
   include ::r10K
 
-  class { '::puppet':
-    agent                      => true,
-    server                     => true,
-    server_implementation      => 'puppetserver',
-    server_common_modules_path => ['/etc/puppet/modules', '/usr/share/puppet/modules'],
-  }
+#   class { '::puppet':
+#     agent                      => true,
+#     server                     => true,
+#     server_implementation      => 'puppetserver',
+#     server_common_modules_path => ['/etc/puppet/modules', '/usr/share/puppet/modules'],
+#   }
+  include ::puppet
 
   file { '/etc/hiera.yaml':
     ensure => 'symlink',
