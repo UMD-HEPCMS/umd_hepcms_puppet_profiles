@@ -16,7 +16,7 @@ class profile::params {
   $domain                   = hiera('domain', 'umd.edu')
   $external_domain          = hiera('external_domain', 'umd.edu')
   $external_nameservers     = hiera_undef('external_nameservers')
-  $internal_domain          = hiera('internal_domain', 'local')
+  $internal_domain          = hiera('internal_domain', 'privnet')
   $internal_nameservers     = hiera_undef('internal_nameservers')
   # Work around to allow internal_nameservers to be joined with external_nameservers and possibly be undef to
   # avoid hardcoding defaults into this module
