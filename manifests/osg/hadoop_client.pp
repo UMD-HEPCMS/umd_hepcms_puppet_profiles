@@ -37,11 +37,13 @@ class profile::osg::hadoop_client {
 	require => Package['osg-se-hadoop-client']    
   }
 # hadoop mountpoint
-  file { "/mnt/hadoop": ensure => directory }
+  file { "/mnt/hadoop": ensure => directory 
+    owner   => "hdfs",
+    group   => "hadoop"
+  }
   mount { "mount_hadoop":
     name    => "/mnt/hadoop",
-    owner   => "hdfs",
-    group   => "hadoop",
+    
 	device  => "hadoop-fuse-dfs",
 	fstype  => "fuse",
 	ensure  => mounted,
