@@ -40,6 +40,8 @@ class profile::osg::hadoop_client {
   file { "/mnt/hadoop": ensure => directory }
   mount { "mount_hadoop":
     name    => "/mnt/hadoop",
+    owner   => "hdfs",
+    group   => "hadoop",
 	device  => "hadoop-fuse-dfs",
 	fstype  => "fuse",
 	ensure  => mounted,
