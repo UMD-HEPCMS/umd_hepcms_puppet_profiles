@@ -43,7 +43,6 @@ class profile::osg::hadoop_client {
   }
   mount { "mount_hadoop":
     name    => "/mnt/hadoop",
-    
 	device  => "hadoop-fuse-dfs",
 	fstype  => "fuse",
 	ensure  => mounted,
