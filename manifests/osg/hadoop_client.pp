@@ -37,7 +37,7 @@ class profile::osg::hadoop_client {
 	require => Package['osg-se-hadoop-client']    
   }
 # hadoop mountpoint
-  file { "/mnt/hadoop": ensure => directory, 
+  file { '/mnt/hadoop': ensure => directory, 
     owner   => 'hdfs',
     group   => 'hadoop',
   }
