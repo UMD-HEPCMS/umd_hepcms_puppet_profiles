@@ -38,8 +38,8 @@ class profile::osg::hadoop_client {
   }
 # hadoop mountpoint
   file { "/mnt/hadoop": ensure => directory, 
-    owner   => "hdfs",
-    group   => "hadoop",
+    owner   => 'hdfs',
+    group   => 'hadoop',
   }
   mount { "mount_hadoop":
     name    => "/mnt/hadoop",
