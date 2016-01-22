@@ -56,6 +56,8 @@ Class['::puppetlabs_yum'] -> Class['::facter']
   include ntp
   include sudo
 
+  # clustershell library
+  include ::clustershell 
   # Modules only applied to systems based on facts - these determinations are done by the module
   include omsa
   include ovirt::guest
