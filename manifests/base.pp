@@ -71,7 +71,6 @@ Class['::puppetlabs_yum'] -> Class['::facter']
   file { '/hadoop':
     ensure => 'symlink',
     target => '/mnt/hadoop/cms',
-    tags => 'hadoopln',
   }
   file { '/store':
     ensure => 'symlink',
