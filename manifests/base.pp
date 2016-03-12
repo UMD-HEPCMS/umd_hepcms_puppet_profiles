@@ -70,7 +70,7 @@ Class['::puppetlabs_yum'] -> Class['::facter']
 # ln -s /mnt/hadoop/cms/store /store 
   file { '/hadoop':
     ensure => 'symlink',
-    target => '/mnt/hadoop',
+    target => '/mnt/hadoop/cms',
   }
   file { '/store':
     ensure => 'symlink',
