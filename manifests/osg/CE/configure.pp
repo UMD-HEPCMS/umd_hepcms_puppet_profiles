@@ -20,7 +20,7 @@ class profile::osg::ce::configure {
     owner   => 'tomcat',
     group   => 'tomcat',
     mode    => '0444',
-    source  => '/data/site_conf/certs/',
+    source  => 'file:///data/site_conf/certs/httpcert.pem',
     require => File['/etc/grid-security/http'],
   }
   
@@ -29,7 +29,7 @@ class profile::osg::ce::configure {
     owner   => 'tomcat',
     group   => 'tomcat',
     mode    => '0400',
-    source  => '/data/site_conf/certs/',
+    source  => 'file:///data/site_conf/certs/httpkey.pem',
     require => File['/etc/grid-security/http'],
   }
   
