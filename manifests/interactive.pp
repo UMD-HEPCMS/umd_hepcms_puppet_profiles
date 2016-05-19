@@ -25,7 +25,7 @@ class profile::interactive  {
  }
  exec { 'TeX Support': 
   #command => '/usr/bin/yum -y groupinstall "TeX support"',
-  command => ''echo "TeX Support not installed"',
+  command => 'echo "TeX Support not installed"',
   onlyif => '/usr/bin/yum grouplist "TeX support" | /bin/grep "^Installed Groups"',
  }
  exec { 'Desktop Platform Development':
