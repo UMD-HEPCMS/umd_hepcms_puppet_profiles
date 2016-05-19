@@ -13,4 +13,6 @@ class profile::osg::repos {
 	 descr      => "OSG Software for Scientific Linux 6.7",
      enabled    => '1',
 	}
+	
+	
 }
