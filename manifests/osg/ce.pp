@@ -2,5 +2,6 @@
 class profile::osg::ce {
 
   include ::osg::ce
+  
 
 }
