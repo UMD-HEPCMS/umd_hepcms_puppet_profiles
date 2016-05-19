@@ -1,11 +1,29 @@
-# == Class: profile::osg::ce
-class profile::osg::ce {
+# == Class: profile::osg::ce::service
+class profile::osg::ce::service {
 
   #include ::osg::ce
   include profile::osg 
   include osg::cacerts
   
-  #Initialization of facts for the Compute Element
+  # Service class for Compute Element
+  
+  # services require to ensure they are enabled
+  # condor and condor-ce 
+  
+  
+  service {'condor':
+   ensure => 'running',
+   enable => true,
+   hasstatus => true,
+   hasrestart => true,
+  }
+  
+  service { 'condor-ce':
+   ensure => 'running',
+   enable => true,
+   hasstatus => true,
+   hasrestart => true,
+  }
   
   
   
