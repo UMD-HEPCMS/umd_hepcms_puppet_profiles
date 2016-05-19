@@ -3,7 +3,7 @@ class profile::osg::repos {
 	# including the profile module 
 	include profiles::osg 
 	# include the params file, which will initialize things
-	include profiles::osg::params 
+	# include profiles::osg::params 
 	
 	$baseurls = {
 		'osg' => "https://repo.grid.iu.edu/osg/3.3/osg-3.3-el6-release-latest.rpm"
