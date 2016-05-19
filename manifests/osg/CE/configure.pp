@@ -9,10 +9,29 @@ class profile::osg::ce::configure {
   # Files required will be
   # http cert
   
-  # httpcert.pem
-  # httpkey
+  file { '/etc/grid-security/http':
+    ensure => 'directory',
+    owner  => 'tomcat',
+    group  => 'tomcat',
+    mode   => '0755',
+  }
+  file { '/etc/grid-security/http/httpcert.pem':
+    ensure  => 'file',
+    owner   => 'tomcat',
+    group   => 'tomcat',
+    mode    => '0444',
+    source  => '/data/site_conf/certs/',
+    require => File['/etc/grid-security/http'],
+  }
   
-  
+  file { '/etc/grid-security/http/httpkey.pem':
+    ensure  => 'file',
+    owner   => 'tomcat',
+    group   => 'tomcat',
+    mode    => '0400',
+    source  => '/data/site_conf/certs/',
+    require => File['/etc/grid-security/http'],
+  }
   
   
   
