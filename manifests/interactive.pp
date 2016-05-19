@@ -1,5 +1,7 @@
 # Test file for INT, to pick up by the VMTEST
 class profile::interactive  {
+ #All execs will use this path
+ Exec { path => ['/bin/', '/usr/bin/', '/usr/bin/yum/' ] }
  notify { 'interactive profile': }
  # wont actually run the command but will check if installed 
  exec { 'Office Suite and Productivity':
