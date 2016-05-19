@@ -4,9 +4,11 @@ class profile::interactive  {
  # wont actually run the command but will check if installed 
  exec { 'yum Group Install':
   
-   unless  => '/usr/bin/yum grouplist "Office Suite and Productivity" | /bin/grep "^Installed Groups"',
-   notify { "Office Suite and Productivity not installed": }
-   #command => '/usr/bin/yum -y groupinstall "Office Suite and Productivity"',
+   unless '/usr/bin/yum grouplist "Office Suite and Productivity" | /bin/grep "^Installed Groups"' 
+   {
+    #command => '/usr/bin/yum -y groupinstall "Office Suite and Productivity"',
+    notify { "Office Suite and Productivity not installed": }
+   }
   
    unless  => '/usr/bin/yum grouplist "Graphics Creation Tools" | /bin/grep "^Installed Groups"',
    #command => '/usr/bin/yum -y groupinstall "Graphics Creation Tools"',
