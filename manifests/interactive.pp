@@ -2,17 +2,17 @@
 class profile::interactive  {
  notify { 'interactive profile': }
  # wont actually run the command but will check if installed 
- exec { 'yum Group Install':
-  
-   unless '/usr/bin/yum grouplist \"Office Suite and Productivity\" | /bin/grep \"^Installed Groups\"',
-    #command => '/usr/bin/yum -y groupinstall "Office Suite and Productivity"',
-   notify { "Office Suite and Productivity not installed": }
-   
-  
-   unless  => '/usr/bin/yum grouplist "Graphics Creation Tools" | /bin/grep "^Installed Groups"',
-   #command => '/usr/bin/yum -y groupinstall "Graphics Creation Tools"',
-   notify { "Graphics Creation Tools  not installed": }
-  
+ exec { 'Office Suite and Productivity':
+  #command => '/usr/bin/yum -y groupinstall "Office Suite and Productivity"',
+  command => '/bin/ls'
+  onlyif => '/usr/bin/yum grouplist \"Office Suite and Productivity\" | /bin/grep \"^Installed Groups\"',
+  notify => "Office Suite and Productivity not installed"
+ }
+ exec { 'Graphics Creation Tools':
+  #command => '/usr/bin/yum -y groupinstall "Graphics Creation Tools"',
+  onlyif => '/usr/bin/yum grouplist "Graphics Creation Tools" | /bin/grep "^Installed Groups"',
+  notify { "Graphics Creation Tools  not installed": }
+  }
    unless  => '/usr/bin/yum grouplist "Desktop" | /bin/grep "^Installed Groups"',
    #command => '/usr/bin/yum -y groupinstall "Desktop"',
   notify { "Desktop not installed": }
