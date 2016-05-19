@@ -7,31 +7,31 @@ class profile::interactive  {
  exec { 'Office Suite and Productivity':
   #command => 'yum -y groupinstall "Office Suite and Productivity"',
   command => 'echo "Office Suite and Productivity not installed" ; echo "uh oh"',
-  onlyif => 'yum grouplist "Office Suite and Productivity" | grep "^Installed Groups"',
+  unless => 'yum grouplist "Office Suite and Productivity" | grep "^Installed Groups"',
  }
  exec { 'Graphics Creation Tools':
   #command => 'yum -y groupinstall "Graphics Creation Tools"',
   command => 'echo "Graphics Creation Tools  not installed"',
-  onlyif => 'yum grouplist "Graphics Creation Tools" | grep "^Installed Groups"',
+  unless => 'yum grouplist "Graphics Creation Tools" | grep "^Installed Groups"',
  }
  exec { 'Desktop':
   #command => 'yum -y groupinstall "Desktop"',
   command => 'echo "Desktop not installed"',
-  onlyif => 'yum grouplist "Desktop" | grep "^Installed Groups"',
+  unless => 'yum grouplist "Desktop" | grep "^Installed Groups"',
  }
  exec { 'X Window System': 
   #command => 'yum -y groupinstall "X Window System"',
   command => 'echo "X Window System  not installed"',
-  onlyif => 'yum grouplist "X Window System" | grep "^Installed Groups"',
+  unless => 'yum grouplist "X Window System" | grep "^Installed Groups"',
  }
  exec { 'TeX Support': 
   #command => 'yum -y groupinstall "TeX support"',
   command => 'echo "TeX Support not installed"',
-  onlyif => 'yum grouplist "TeX support" | grep "^Installed Groups"',
+  unless => 'yum grouplist "TeX support" | grep "^Installed Groups"',
  }
  exec { 'Desktop Platform Development':
   #command => 'yum -y groupinstall "Desktop Platform Development"',
   command => 'echo "Desktop Platform Development not installed"',
-  onlyif => 'yum grouplist "Desktop Platform Development" | grep "^Installed Groups"',
+  unless => 'yum grouplist "Desktop Platform Development" | grep "^Installed Groups"',
  }
 }
