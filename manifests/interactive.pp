@@ -2,17 +2,17 @@
 class profile::interactive  {
  #All execs will use this path
  Exec { path => ['/bin/', '/usr/bin/', '/usr/bin/yum/' ] }
- notify { 'interactive profile': }
+ notify { 'Interactive profile': }
  # wont actually run the command but will check if installed 
  exec { 'Office Suite and Productivity':
   #command => 'yum -y groupinstall "Office Suite and Productivity"',
-  command => 'echo "Office Suite and Productivity not installed" ; echo "uh oh"',
+  command => 'echo "Office Suite and Productivity not installed"',
   unless => 'yum grouplist "Office Suite and Productivity" | grep "^Installed Groups"',
   logoutput => true,
  }
  exec { 'Graphics Creation Tools':
   #command => 'yum -y groupinstall "Graphics Creation Tools"',
-  command => 'echo "Graphics Creation Tools  not installed"',
+  command => 'echo "Graphics Creation Tools not installed"',
   unless => 'yum grouplist "Graphics Creation Tools" | grep "^Installed Groups"',
   logoutput => true,
  }
@@ -24,7 +24,7 @@ class profile::interactive  {
  }
  exec { 'X Window System': 
   #command => 'yum -y groupinstall "X Window System"',
-  command => 'echo "X Window System  not installed"',
+  command => 'echo "X Window System not installed"',
   unless => 'yum grouplist "X Window System" | grep "^Installed Groups"',
   logoutput => true,
  }
