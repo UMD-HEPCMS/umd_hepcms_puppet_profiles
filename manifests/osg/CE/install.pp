@@ -1,5 +1,5 @@
 # == Class: profile::osg::ce::install
-class profile::osg::ce {
+class profile::osg::ce::install {
 
   #include ::osg::ce
   include profile::osg 
