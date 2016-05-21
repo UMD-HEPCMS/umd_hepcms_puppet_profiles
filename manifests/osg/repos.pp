@@ -1,7 +1,7 @@
 # Yum Repository File for OSG3.3
 class profile::osg::repos {
 	# including the profile module 
-	include profiles::osg 
+	include profile::osg 
 	# include the params file, which will initialize things
 	# include profiles::osg::params 
 	
