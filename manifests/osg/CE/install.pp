@@ -18,9 +18,5 @@ class profile::osg::ce::install {
     ensure => 'present',
 	name => 'condor-ce',
   }
-  
-  
-  
-  
 
 }
