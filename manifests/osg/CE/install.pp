@@ -1,8 +1,8 @@
 # == Class: profile::osg::ce::install
-class profile::osg::ce::install {
+class osg::ce::install {
 
-  #include ::osg::ce
-  include profile::osg 
+  include profile::osg
+  include profile::osg::ce
   include osg::cacerts
   
   # installation puppet file for CE 
