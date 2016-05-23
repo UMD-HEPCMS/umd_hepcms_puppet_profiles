@@ -2,7 +2,7 @@
 class profile::osg::cefiles::service {
 
   #include ::osg::ce
-  include ::profile::osg 
+ # include ::profile::osg 
   include osg::cacerts
   
   # Service class for Compute Element
