@@ -1,5 +1,5 @@
 # == Class: profile::osg::ce::service
-class profile::osg::ce::service {
+class profile::osg::cefiles::service {
 
   #include ::osg::ce
   include profile::osg 

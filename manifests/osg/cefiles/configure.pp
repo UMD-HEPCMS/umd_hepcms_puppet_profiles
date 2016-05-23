@@ -1,6 +1,6 @@
 # == Class: profile::osg::ce::configure
 # This file will be used to setup the configurations of the compute element
-class profile::osg::ce::configure {
+class profile::osg::cefiles::configure {
   
   include profile::osg 
   include osg::cacerts
