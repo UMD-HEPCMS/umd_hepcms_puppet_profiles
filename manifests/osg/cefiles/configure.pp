@@ -1,4 +1,4 @@
-# == Class: profile::osg::ce::configure
+# == Class: profile::osg::cefiles::configure
 # This file will be used to setup the configurations of the compute element
 class profile::osg::cefiles::configure {
   
