@@ -1,7 +1,7 @@
 class profile::osg::ce {
 
-  include ce
-  include profile::osg 
+  include profile::osg::cefiles
+  #include profile::osg 
   include osg::cacerts
     
 }
