@@ -1,14 +1,12 @@
-# == Class: profile::osg::cefiles::service
+
 class profile::osg::cefiles::service {
 
-  #include ::osg::ce
- # include ::profile::osg 
+ 
   include osg::cacerts
   
-  # Service class for Compute Element
-  
-  # services require to ensure they are enabled
-  # condor and condor-ce 
+  /*Service class for Compute Element
+   services require to ensure they are enabled
+   condor and condor-ce */
   
   
   service {'condor':
