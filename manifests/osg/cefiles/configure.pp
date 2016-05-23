@@ -2,7 +2,7 @@
 # This file will be used to setup the configurations of the compute element
 class profile::osg::cefiles::configure {
   
-  include profile::osg 
+  #include profile::osg 
   include osg::cacerts
   
   # Files required will be
