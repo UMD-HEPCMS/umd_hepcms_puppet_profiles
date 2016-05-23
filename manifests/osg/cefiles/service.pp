@@ -1,4 +1,4 @@
-# == Class: profile::osg::ce::service
+# == Class: profile::osg::cefiles::service
 class profile::osg::cefiles::service {
 
   #include ::osg::ce
