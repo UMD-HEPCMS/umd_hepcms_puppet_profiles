@@ -7,11 +7,11 @@ class profile::osg::cefiles::install {
   
   package { 'condor':
     ensure => 'present',
-	before => Package['condor-ce'],
+	before => Package['osg-ce-condor'],
   }
-  package { 'condor-ce':
+  package { 'osg-ce-condor':
     ensure => 'present',
-	name => 'condor-ce',
+	name => 'osg-ce-condor',
   }
 
 }
