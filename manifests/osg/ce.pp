@@ -15,4 +15,12 @@ class profile::osg::ce {
     managehome => false,
     forcelocal => true
   }
+  
+  group { 'tomcat':
+    ensure => 'present',
+    name   => 'tomcat',
+    system => true,
+    forcelocal => true
+  }
+  
 }
