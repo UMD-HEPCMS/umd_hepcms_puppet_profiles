@@ -5,8 +5,8 @@ class profile::interactive  {
  notify { 'Interactive profile': }
  # wont actually run the command but will check if installed 
  exec { 'Office Suite and Productivity':
-  #command => 'yum -y groupinstall "Office Suite and Productivity"',
-  command => 'echo "Office Suite and Productivity not installed"',
+  command => 'echo "Office Suite and Productivity not installed, installing now" ; yum -y groupinstall "Office Suite and Productivity"',
+  #command => 'echo "Office Suite and Productivity not installed"',
   unless => 'yum grouplist "Office Suite and Productivity" | grep "^Installed Groups"',
   logoutput => true,
  }
