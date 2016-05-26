@@ -65,11 +65,11 @@ class profile::osg::cefiles::configure {
   file { '/etc/condor/config.d/cluster.conf':
     ensure  => 'file',
     source  => 'file:///data/site_conf/condor/cluster.conf',
-    require => File['/etc/condor/config.d/'],
+    require => File['/etc/condor/config.d'],
   }
   file { '/etc/condor/config.d/local.conf':
     ensure  => 'file',
     source  => 'file:///data/site_conf/condor/local.conf',
-    require => File['/etc/condor/config.d/'],
+    require => File['/etc/condor/config.d'],
   }
 }
