@@ -6,6 +6,7 @@ class profile::osg::cefiles::configure {
   # Files required will be
   # http cert
   
+  # ensure /etc/grid-security/http directory exists
   file { '/etc/grid-security/http':
     ensure => 'directory',
     owner  => 'tomcat',
@@ -29,7 +30,6 @@ class profile::osg::cefiles::configure {
     source  => 'file:///data/site_conf/certs/httpkey.pem',
     require => File['/etc/grid-security/http'],
   }
-  
   
   # ensure condor/config.d exists
   file { '/etc/condor/config.d':
@@ -81,5 +81,13 @@ class profile::osg::cefiles::configure {
     mode    => '0400',
     source  => 'file:///data/site_conf/condor/local.conf',
     require => File['/etc/condor/config.d/'],
+  }
+  
+  # ensure the HTCondorCE Directory exists
+    file { '/etc/condor-ce/config.d':
+    ensure => 'directory',
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0755',
   }
 }
