@@ -91,11 +91,92 @@ class profile::osg::cefiles::configure {
     mode   => '0755',
   }
   
-  # file HTCondorCE 
+  # file HTCondorCE 01-ce-auth.conf
   file { '/etc/condor-ce/config.d/01-ce-auth.conf':
     ensure  => 'file',
     mode    => '0400',
     source  => 'file:///data/site_conf/condor-ce/01-ce-auth.conf',
     require => File['/etc/condor-ce/config.d/01-ce-auth.conf'],
   }
+  
+  # file HTCondorCE 01-ce-router.conf
+  file { '/etc/condor-ce/config.d/01-ce-router.conf':
+    ensure  => 'file',
+    mode    => '0400',
+    source  => 'file:///data/site_conf/condor-ce/01-ce-router.conf',
+    require => File['/etc/condor-ce/config.d/01-ce-router.conf'],
+  }
+  
+  # file HTCondorCE 01-common-auth.conf
+  file { '/etc/condor-ce/config.d/01-common-auth.conf':
+    ensure  => 'file',
+    mode    => '0400',
+    source  => 'file:///data/site_conf/condor-ce/01-common-auth.conf',
+    require => File['/etc/condor-ce/config.d/01-common-auth.conf'],
+  }
+  
+  # file HTCondorCE 02-ce-condor.conf
+  file { '/etc/condor-ce/config.d/02-ce-condor.conf':
+    ensure  => 'file',
+    mode    => '0400',
+    source  => 'file:///data/site_conf/condor-ce/02-ce-condor.conf',
+    require => File['/etc/condor-ce/config.d/02-ce-condor.conf'],
+  }
+  
+  # file HTCondorCE 03-ce-shared-port.conf
+  file { '/etc/condor-ce/config.d/03-ce-shared-port.conf':
+    ensure  => 'file',
+    mode    => '0400',
+    source  => 'file:///data/site_conf/condor-ce/03-ce-shared-port.conf',
+    require => File['/etc/condor-ce/config.d/03-ce-shared-port.conf'],
+  }
+  
+  # file HTCondorCE 03-managed-fork.conf
+  file { '/etc/condor-ce/config.d/03-managed-fork.conf':
+    ensure  => 'file',
+    mode    => '0400',
+    source  => 'file:///data/site_conf/condor-ce/03-managed-fork.conf',
+    require => File['/etc/condor-ce/config.d/03-managed-fork.conf'],
+  }
+  
+  # file HTCondorCE 05-ce-health.conf
+  file { '/etc/condor-ce/config.d/05-ce-health.conf':
+    ensure  => 'file',
+    mode    => '0400',
+    source  => 'file:///data/site_conf/condor-ce/05-ce-health.conf',
+    require => File['/etc/condor-ce/config.d/05-ce-health.conf'],
+  }
+  
+  # file HTCondorCE 10-ce-collector-generated.conf
+  file { '/etc/condor-ce/config.d/10-ce-collector-generated.conf':
+    ensure  => 'file',
+    mode    => '0400',
+    source  => 'file:///data/site_conf/condor-ce/10-ce-collector-generated.conf',
+    require => File['/etc/condor-ce/config.d/10-ce-collector-generated.conf'],
+  } 
+  
+  # file HTCondorCE 10-osg-attributes-generated.conf
+  file { '/etc/condor-ce/config.d/10-osg-attributes-generated.conf':
+    ensure  => 'file',
+    mode    => '0400',
+    source  => 'file:///data/site_conf/condor-ce/10-osg-attributes-generated.conf',
+    require => File['/etc/condor-ce/config.d/10-osg-attributes-generated.conf'],
+  } 
+  
+  # file HTCondorCE 99-local.conf
+  file { '/etc/condor-ce/config.d/99-local.conf':
+    ensure  => 'file',
+    mode    => '0400',
+    source  => 'file:///data/site_conf/condor-ce/99-local.conf',
+    require => File['/etc/condor-ce/config.d/99-local.conf'],
+  } 
+  
+  # file HTCondorCE 50-osg-configure.conf
+  file { '/etc/condor-ce/config.d/50-osg-configure.conf':
+    ensure  => 'file',
+    mode    => '0400',
+    source  => 'file:///data/site_conf/condor-ce/50-osg-configure.conf',
+    require => File['/etc/condor-ce/config.d/50-osg-configure.conf'],
+  } 
+  
 }
