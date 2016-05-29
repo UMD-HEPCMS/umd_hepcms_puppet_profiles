@@ -23,6 +23,9 @@ class profile::osg::cefiles::service {
    hasrestart => true,
   }
 # insert something here to make sure puppet does not auto run..
-  
+  exec { 'kill-puppet':
+   command => 'chkconfig puppet off',
+   onlyif => 'chkconfig --list puppet | grep on',
+  }
 
 }
