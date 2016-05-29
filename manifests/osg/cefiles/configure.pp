@@ -249,14 +249,6 @@ class profile::osg::cefiles::configure {
     require => File['/etc/osg/config.d/'],
   }
   
-  # file 10-storage.ini
-  file { '/etc/osg/config.d/10-storage.ini':
-    ensure  => 'file',
-    mode    => '0400',
-    source  => 'file:///data/site_conf/ini/10-storage.ini',
-    require => File['/etc/osg/config.d/'],
-  }
-  
   # file 20-condor.ini
   file { '/etc/osg/config.d/20-condor.ini':
     ensure  => 'file',
