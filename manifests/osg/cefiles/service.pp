@@ -23,10 +23,10 @@ class profile::osg::cefiles::service {
    hasrestart => true,
   }
  service { 'puppet':
-   ensure => 'false',
+  # ensure => 'false',
    enable => manual,
-   hasstatus => true,
-   hasrestart => true,
+  # hasstatus => true,
+  # hasrestart => true,
   }
   
   
