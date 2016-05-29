@@ -258,5 +258,33 @@ class profile::osg::cefiles::configure {
   }
   
   # file 20-condor.ini
+  file { '/etc/osg/config.d/20-condor.ini':
+    ensure  => 'file',
+    mode    => '0400',
+    source  => 'file:///data/site_conf/ini/20-condor.ini',
+    require => File['/etc/osg/config.d/'],
+  }
+  # file 30-gratia.ini
+  file { '/etc/osg/config.d/30-gratia.ini':
+    ensure  => 'file',
+    mode    => '0400',
+    source  => 'file:///data/site_conf/ini/30-gratia.ini',
+    require => File['/etc/osg/config.d/'],
+  }
   
+  # file 40-localsettings.ini
+  file { '/etc/osg/config.d/40-localsettings.ini':
+    ensure  => 'file',
+    mode    => '0400',
+    source  => 'file:///data/site_conf/ini/40-localsettings.ini',
+    require => File['/etc/osg/config.d/'],
+  }
+  
+  # file 40-siteinfo.ini
+  file { '/etc/osg/config.d/40-siteinfo.ini':
+    ensure  => 'file',
+    mode    => '0400',
+    source  => 'file:///data/site_conf/ini/40-siteinfo.ini',
+    require => File['/etc/osg/config.d/'],
+  }
 }
