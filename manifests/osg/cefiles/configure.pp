@@ -96,7 +96,7 @@ class profile::osg::cefiles::configure {
     ensure  => 'file',
     mode    => '0400',
     source  => 'file:///data/site_conf/condor-ce/01-ce-auth.conf',
-    require => File['/etc/condor-ce/config.d/01-ce-auth.conf'],
+    require => File['/etc/condor-ce/config.d/'],
   }
   
   # file HTCondorCE 01-ce-router.conf
@@ -104,7 +104,7 @@ class profile::osg::cefiles::configure {
     ensure  => 'file',
     mode    => '0400',
     source  => 'file:///data/site_conf/condor-ce/01-ce-router.conf',
-    require => File['/etc/condor-ce/config.d/01-ce-router.conf'],
+    require => File['/etc/condor-ce/config.d/'],
   }
   
   # file HTCondorCE 01-common-auth.conf
@@ -112,7 +112,7 @@ class profile::osg::cefiles::configure {
     ensure  => 'file',
     mode    => '0400',
     source  => 'file:///data/site_conf/condor-ce/01-common-auth.conf',
-    require => File['/etc/condor-ce/config.d/01-common-auth.conf'],
+    require => File['/etc/condor-ce/config.d/'],
   }
   
   # file HTCondorCE 02-ce-condor.conf
@@ -120,7 +120,7 @@ class profile::osg::cefiles::configure {
     ensure  => 'file',
     mode    => '0400',
     source  => 'file:///data/site_conf/condor-ce/02-ce-condor.conf',
-    require => File['/etc/condor-ce/config.d/02-ce-condor.conf'],
+    require => File['/etc/condor-ce/config.d/'],
   }
   
   # file HTCondorCE 03-ce-shared-port.conf
@@ -128,7 +128,7 @@ class profile::osg::cefiles::configure {
     ensure  => 'file',
     mode    => '0400',
     source  => 'file:///data/site_conf/condor-ce/03-ce-shared-port.conf',
-    require => File['/etc/condor-ce/config.d/03-ce-shared-port.conf'],
+    require => File['/etc/condor-ce/config.d/'],
   }
   
   # file HTCondorCE 03-managed-fork.conf
@@ -136,7 +136,7 @@ class profile::osg::cefiles::configure {
     ensure  => 'file',
     mode    => '0400',
     source  => 'file:///data/site_conf/condor-ce/03-managed-fork.conf',
-    require => File['/etc/condor-ce/config.d/03-managed-fork.conf'],
+    require => File['/etc/condor-ce/config.d/'],
   }
   
   # file HTCondorCE 05-ce-health.conf
@@ -144,7 +144,7 @@ class profile::osg::cefiles::configure {
     ensure  => 'file',
     mode    => '0400',
     source  => 'file:///data/site_conf/condor-ce/05-ce-health.conf',
-    require => File['/etc/condor-ce/config.d/05-ce-health.conf'],
+    require => File['/etc/condor-ce/config.d/'],
   }
   
   # file HTCondorCE 10-ce-collector-generated.conf
@@ -152,7 +152,7 @@ class profile::osg::cefiles::configure {
     ensure  => 'file',
     mode    => '0400',
     source  => 'file:///data/site_conf/condor-ce/10-ce-collector-generated.conf',
-    require => File['/etc/condor-ce/config.d/10-ce-collector-generated.conf'],
+    require => File['/etc/condor-ce/config.d/'],
   } 
   
   # file HTCondorCE 10-osg-attributes-generated.conf
@@ -160,7 +160,7 @@ class profile::osg::cefiles::configure {
     ensure  => 'file',
     mode    => '0400',
     source  => 'file:///data/site_conf/condor-ce/10-osg-attributes-generated.conf',
-    require => File['/etc/condor-ce/config.d/10-osg-attributes-generated.conf'],
+    require => File['/etc/condor-ce/config.d/'],
   } 
   
   # file HTCondorCE 99-local.conf
@@ -168,7 +168,7 @@ class profile::osg::cefiles::configure {
     ensure  => 'file',
     mode    => '0400',
     source  => 'file:///data/site_conf/condor-ce/99-local.conf',
-    require => File['/etc/condor-ce/config.d/99-local.conf'],
+    require => File['/etc/condor-ce/config.d/'],
   } 
   
   # file HTCondorCE 50-osg-configure.conf
@@ -176,7 +176,7 @@ class profile::osg::cefiles::configure {
     ensure  => 'file',
     mode    => '0400',
     source  => 'file:///data/site_conf/condor-ce/50-osg-configure.conf',
-    require => File['/etc/condor-ce/config.d/50-osg-configure.conf'],
+    require => File['/etc/condor-ce/config.d/'],
   } 
   
 }
