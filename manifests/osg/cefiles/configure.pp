@@ -1,4 +1,4 @@
-
+# this class is for configurations that will only be run once
 class profile::osg::cefiles::configure {
   
   include osg::cacerts
@@ -278,5 +278,13 @@ class profile::osg::cefiles::configure {
     mode    => '0400',
     source  => 'file:///data/site_conf/ini/40-siteinfo.ini',
     require => File['/etc/osg/config.d/'],
+  }
+  
+  # run the osg-configure step, first the -v option, then the -c
+  exec { 'osg-configure':
+    path        => ['/usr/bin','/bin','/usr/sbin','/sbin'],
+    command     => '/usr/sbin/osg-configure -c',
+    onlyif      => ['test -f /usr/sbin/osg-configure', '/usr/sbin/osg-configure -v'],
+    refreshonly => true,
   }
 }
