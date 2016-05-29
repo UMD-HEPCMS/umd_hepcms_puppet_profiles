@@ -24,6 +24,7 @@ class profile::osg::cefiles::service {
   }
 # insert something here to make sure puppet does not auto run..
   exec { 'kill-puppet':
+   path => ['/bin', '/sbin/'],
    command => 'chkconfig puppet off',
    onlyif => 'chkconfig --list puppet | grep on',
   }
