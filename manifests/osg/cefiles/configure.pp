@@ -52,9 +52,9 @@ class profile::osg::cefiles::configure {
   
   file { '/etc/condor/config.d/50-condor-ce-defaults.conf':
     ensure  => 'file',
-    owner   => 'root',
-    group   => 'root',
-    mode    => '0400',
+ #   owner   => 'root',
+#   group   => 'root',
+#   mode    => '0400',
     source  => 'file:///data/site_conf/condor/50-condor-ce-defaults.conf',
     require => File['/etc/condor/config.d'],
   }
@@ -72,13 +72,13 @@ class profile::osg::cefiles::configure {
   
   file { '/etc/condor/config.d/cluster.conf':
     ensure  => 'file',
-    mode    => '0400',
+#    mode    => '0400',
     source  => 'file:///data/site_conf/condor/cluster.conf',
     require => File['/etc/condor/config.d/'],
   }
   file { '/etc/condor/config.d/local.conf':
     ensure  => 'file',
-    mode    => '0400',
+ #   mode    => '0400',
     source  => 'file:///data/site_conf/condor/local.conf',
     require => File['/etc/condor/config.d/'],
   }
@@ -94,7 +94,7 @@ class profile::osg::cefiles::configure {
   # file HTCondorCE 01-ce-auth.conf
   file { '/etc/condor-ce/config.d/01-ce-auth.conf':
     ensure  => 'file',
-    mode    => '0400',
+ #   mode    => '0400',
     source  => 'file:///data/site_conf/condor-ce/01-ce-auth.conf',
     require => File['/etc/condor-ce/config.d/'],
   }
@@ -102,7 +102,7 @@ class profile::osg::cefiles::configure {
   # file HTCondorCE 01-ce-router.conf
   file { '/etc/condor-ce/config.d/01-ce-router.conf':
     ensure  => 'file',
-    mode    => '0400',
+#    mode    => '0400',
     source  => 'file:///data/site_conf/condor-ce/01-ce-router.conf',
     require => File['/etc/condor-ce/config.d/'],
   }
@@ -110,7 +110,7 @@ class profile::osg::cefiles::configure {
   # file HTCondorCE 01-common-auth.conf
   file { '/etc/condor-ce/config.d/01-common-auth.conf':
     ensure  => 'file',
-    mode    => '0400',
+ #   mode    => '0400',
     source  => 'file:///data/site_conf/condor-ce/01-common-auth.conf',
     require => File['/etc/condor-ce/config.d/'],
   }
@@ -118,7 +118,7 @@ class profile::osg::cefiles::configure {
   # file HTCondorCE 02-ce-condor.conf
   file { '/etc/condor-ce/config.d/02-ce-condor.conf':
     ensure  => 'file',
-    mode    => '0400',
+ #   mode    => '0400',
     source  => 'file:///data/site_conf/condor-ce/02-ce-condor.conf',
     require => File['/etc/condor-ce/config.d/'],
   }
@@ -126,7 +126,7 @@ class profile::osg::cefiles::configure {
   # file HTCondorCE 03-ce-shared-port.conf
   file { '/etc/condor-ce/config.d/03-ce-shared-port.conf':
     ensure  => 'file',
-    mode    => '0400',
+ #   mode    => '0400',
     source  => 'file:///data/site_conf/condor-ce/03-ce-shared-port.conf',
     require => File['/etc/condor-ce/config.d/'],
   }
@@ -134,7 +134,7 @@ class profile::osg::cefiles::configure {
   # file HTCondorCE 03-managed-fork.conf
   file { '/etc/condor-ce/config.d/03-managed-fork.conf':
     ensure  => 'file',
-    mode    => '0400',
+#    mode    => '0400',
     source  => 'file:///data/site_conf/condor-ce/03-managed-fork.conf',
     require => File['/etc/condor-ce/config.d/'],
   }
@@ -142,7 +142,7 @@ class profile::osg::cefiles::configure {
   # file HTCondorCE 05-ce-health.conf
   file { '/etc/condor-ce/config.d/05-ce-health.conf':
     ensure  => 'file',
-    mode    => '0400',
+ #   mode    => '0400',
     source  => 'file:///data/site_conf/condor-ce/05-ce-health.conf',
     require => File['/etc/condor-ce/config.d/'],
   }
@@ -150,7 +150,7 @@ class profile::osg::cefiles::configure {
   # file HTCondorCE 10-ce-collector-generated.conf
   file { '/etc/condor-ce/config.d/10-ce-collector-generated.conf':
     ensure  => 'file',
-    mode    => '0400',
+  #  mode    => '0400',
     source  => 'file:///data/site_conf/condor-ce/10-ce-collector-generated.conf',
     require => File['/etc/condor-ce/config.d/'],
   } 
@@ -158,7 +158,7 @@ class profile::osg::cefiles::configure {
   # file HTCondorCE 10-osg-attributes-generated.conf
   file { '/etc/condor-ce/config.d/10-osg-attributes-generated.conf':
     ensure  => 'file',
-    mode    => '0400',
+  #  mode    => '0400',
     source  => 'file:///data/site_conf/condor-ce/10-osg-attributes-generated.conf',
     require => File['/etc/condor-ce/config.d/'],
   } 
@@ -166,7 +166,7 @@ class profile::osg::cefiles::configure {
   # file HTCondorCE 99-local.conf
   file { '/etc/condor-ce/config.d/99-local.conf':
     ensure  => 'file',
-    mode    => '0400',
+  #  mode    => '0400',
     source  => 'file:///data/site_conf/condor-ce/99-local.conf',
     require => File['/etc/condor-ce/config.d/'],
   } 
@@ -174,7 +174,7 @@ class profile::osg::cefiles::configure {
   # file HTCondorCE 50-osg-configure.conf
   file { '/etc/condor-ce/config.d/50-osg-configure.conf':
     ensure  => 'file',
-    mode    => '0400',
+  #  mode    => '0400',
     source  => 'file:///data/site_conf/condor-ce/50-osg-configure.conf',
     require => File['/etc/condor-ce/config.d/'],
   } 
@@ -191,7 +191,7 @@ class profile::osg::cefiles::configure {
   # file 01-squid.ini
   file { '/etc/osg/config.d/01-squid.ini':
     ensure  => 'file',
-    mode    => '0400',
+  #  mode    => '0400',
     source  => 'file:///data/site_conf/ini/01-squid.ini',
     require => File['/etc/osg/config.d/'],
   }
@@ -199,7 +199,7 @@ class profile::osg::cefiles::configure {
   # file 10-misc.ini
   file { '/etc/osg/config.d/10-misc.ini':
     ensure  => 'file',
-    mode    => '0400',
+  #  mode    => '0400',
     source  => 'file:///data/site_conf/ini/10-misc.ini',
     require => File['/etc/osg/config.d/'],
   }
@@ -207,7 +207,7 @@ class profile::osg::cefiles::configure {
   # file 15-managedfork.ini  
   file { '/etc/osg/config.d/15-managedfork.ini':
     ensure  => 'file',
-    mode    => '0400',
+  #  mode    => '0400',
     source  => 'file:///data/site_conf/ini/15-managedfork.ini',
     require => File['/etc/osg/config.d/'],
   }
@@ -215,21 +215,21 @@ class profile::osg::cefiles::configure {
   # file 30-gip.ini     
   file { '/etc/osg/config.d/30-gip.ini':
     ensure  => 'file',
-    mode    => '0400',
+  #  mode    => '0400',
     source  => 'file:///data/site_conf/ini/30-gip.ini',
     require => File['/etc/osg/config.d/'],
   }
   # file 30-infoservices.ini    
   file { '/etc/osg/config.d/30-infoservices.ini':
     ensure  => 'file',
-    mode    => '0400',
+  #  mode    => '0400',
     source  => 'file:///data/site_conf/ini/30-infoservices.ini',
     require => File['/etc/osg/config.d/'],
   }
   # file 40-network.ini
   file { '/etc/osg/config.d/40-network.ini':
     ensure  => 'file',
-    mode    => '0400',
+  #  mode    => '0400',
     source  => 'file:///data/site_conf/ini/40-network.ini',
     require => File['/etc/osg/config.d/'],
   }
@@ -237,14 +237,14 @@ class profile::osg::cefiles::configure {
    # file 10-gateway.ini
   file { '/etc/osg/config.d/10-gateway.ini':
     ensure  => 'file',
-    mode    => '0400',
+  #  mode    => '0400',
     source  => 'file:///data/site_conf/ini/10-gateway.ini',
     require => File['/etc/osg/config.d/'],
   }
   # file 10-storage.ini
   file { '/etc/osg/config.d/10-storage.ini':
     ensure  => 'file',
-    mode    => '0400',
+  #  mode    => '0400',
     source  => 'file:///data/site_conf/ini/10-storage.ini',
     require => File['/etc/osg/config.d/'],
   }
@@ -252,14 +252,14 @@ class profile::osg::cefiles::configure {
   # file 20-condor.ini
   file { '/etc/osg/config.d/20-condor.ini':
     ensure  => 'file',
-    mode    => '0400',
+  #  mode    => '0400',
     source  => 'file:///data/site_conf/ini/20-condor.ini',
     require => File['/etc/osg/config.d/'],
   }
   # file 30-gratia.ini
   file { '/etc/osg/config.d/30-gratia.ini':
     ensure  => 'file',
-    mode    => '0400',
+  #  mode    => '0400',
     source  => 'file:///data/site_conf/ini/30-gratia.ini',
     require => File['/etc/osg/config.d/'],
   }
@@ -267,7 +267,7 @@ class profile::osg::cefiles::configure {
   # file 40-localsettings.ini
   file { '/etc/osg/config.d/40-localsettings.ini':
     ensure  => 'file',
-    mode    => '0400',
+  #  mode    => '0400',
     source  => 'file:///data/site_conf/ini/40-localsettings.ini',
     require => File['/etc/osg/config.d/'],
   }
@@ -275,7 +275,7 @@ class profile::osg::cefiles::configure {
   # file 40-siteinfo.ini
   file { '/etc/osg/config.d/40-siteinfo.ini':
     ensure  => 'file',
-    mode    => '0400',
+  #  mode    => '0400',
     source  => 'file:///data/site_conf/ini/40-siteinfo.ini',
     require => File['/etc/osg/config.d/'],
   }
