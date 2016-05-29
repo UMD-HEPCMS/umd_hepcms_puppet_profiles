@@ -179,5 +179,84 @@ class profile::osg::cefiles::configure {
     require => File['/etc/condor-ce/config.d/'],
   } 
   
-  # TO BE ADDED: THE OSG CONFIGURE FILES :)
+   # ensure the Osg Directory exists
+    file { '/etc/osg/config.d':
+    ensure => 'directory',
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0755',
+  }
+  
+  # Osg Initialization Files
+  # file 01-squid.ini
+  file { '/etc/osg/config.d/01-squid.ini':
+    ensure  => 'file',
+    mode    => '0400',
+    source  => 'file:///data/site_conf/ini/01-squid.ini',
+    require => File['/etc/osg/config.d/'],
+  }
+  
+  # file 10-misc.ini
+  file { '/etc/osg/config.d/10-misc.ini':
+    ensure  => 'file',
+    mode    => '0400',
+    source  => 'file:///data/site_conf/ini/10-misc.ini',
+    require => File['/etc/osg/config.d/'],
+  }
+  
+  # file 15-managedfork.ini  
+  file { '/etc/osg/config.d/15-managedfork.ini':
+    ensure  => 'file',
+    mode    => '0400',
+    source  => 'file:///data/site_conf/ini/15-managedfork.ini',
+    require => File['/etc/osg/config.d/'],
+  }
+  
+  # file 30-gip.ini     
+  file { '/etc/osg/config.d/30-gip.ini':
+    ensure  => 'file',
+    mode    => '0400',
+    source  => 'file:///data/site_conf/ini/30-gip.ini',
+    require => File['/etc/osg/config.d/'],
+  }
+  # file 30-infoservices.ini    
+  file { '/etc/osg/config.d/30-infoservices.ini':
+    ensure  => 'file',
+    mode    => '0400',
+    source  => 'file:///data/site_conf/ini/30-infoservices.ini',
+    require => File['/etc/osg/config.d/'],
+  }
+  # file 40-network.ini
+  file { '/etc/osg/config.d/40-network.ini':
+    ensure  => 'file',
+    mode    => '0400',
+    source  => 'file:///data/site_conf/ini/40-network.ini',
+    require => File['/etc/osg/config.d/'],
+  }
+  
+   # file 10-gateway.ini
+  file { '/etc/osg/config.d/10-gateway.ini':
+    ensure  => 'file',
+    mode    => '0400',
+    source  => 'file:///data/site_conf/ini/10-gateway.ini',
+    require => File['/etc/osg/config.d/'],
+  }
+  # file 10-storage.ini
+  file { '/etc/osg/config.d/10-storage.ini':
+    ensure  => 'file',
+    mode    => '0400',
+    source  => 'file:///data/site_conf/ini/10-storage.ini',
+    require => File['/etc/osg/config.d/'],
+  }
+  
+  # file 10-storage.ini
+  file { '/etc/osg/config.d/10-storage.ini':
+    ensure  => 'file',
+    mode    => '0400',
+    source  => 'file:///data/site_conf/ini/10-storage.ini',
+    require => File['/etc/osg/config.d/'],
+  }
+  
+  # file 20-condor.ini
+  
 }
