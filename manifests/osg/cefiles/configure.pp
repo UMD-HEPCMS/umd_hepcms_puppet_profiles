@@ -90,4 +90,12 @@ class profile::osg::cefiles::configure {
     group  => 'root',
     mode   => '0755',
   }
+  
+  # file HTCondorCE 
+  file { '/etc/condor-ce/config.d/01-ce-auth.conf':
+    ensure  => 'file',
+    mode    => '0400',
+    source  => 'file:///data/site_conf/condor-ce/01-ce-auth.conf',
+    require => File['/etc/condor-ce/config.d/01-ce-auth.conf'],
+  }
 }
