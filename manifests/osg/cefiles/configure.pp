@@ -179,4 +179,5 @@ class profile::osg::cefiles::configure {
     require => File['/etc/condor-ce/config.d/'],
   } 
   
+  # TO BE ADDED: THE OSG CONFIGURE FILES :)
 }
