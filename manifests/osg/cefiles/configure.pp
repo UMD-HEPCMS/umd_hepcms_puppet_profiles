@@ -22,6 +22,34 @@ class profile::osg::cefiles::configure {
     mode   => '0755',
   }
   
+  # ensure /etc/grid-security/rsv directory exists
+  file { '/etc/grid-security/rsv':
+    ensure => 'directory',
+    owner  => 'rsv',
+    group  => 'rsv',
+    mode   => '0755',
+  }
+  
+  # ensure this file exists
+  file { '/etc/grid-security/rsv/rsvcert.pem':
+    ensure  => 'file',
+    owner   => 'rsv',
+    group   => 'rsv',
+    mode    => '0444',
+    source  => 'file:///data/site_conf/certs/rsv/rsvcert.pem',
+    require => File['/etc/grid-security/rsv'],
+  }
+  
+  # ensure this file exists
+  file { '/etc/grid-security/rsv/rsvkey.pem':
+    ensure  => 'file',
+    owner   => 'rsv',
+    group   => 'rsv',
+    mode    => '0400',
+    source  => 'file:///data/site_conf/certs/rsv/rsvkey.pem',
+    require => File['/etc/grid-security/rsv'],
+  }
+  
   # ensure this file exists
   file { '/etc/grid-security/hostcert.pem':
     ensure  => 'file',
