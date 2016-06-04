@@ -1,7 +1,5 @@
 class profile::osg::ce {
 
-  
-  
   include osg::cacerts
     
    user { 'tomcat':
@@ -22,5 +20,18 @@ class profile::osg::ce {
     system => true,
     forcelocal => true
   }
+  
+  user { 'condor':
+    ensure     => 'present',
+    name       => 'condor',
+    gid        => condor,
+    home       => '/home/condor', # wherever package puts $HOME for user
+    shell      => '/bin/bash', # /bin/bash or /sbin/nologin
+    system     => true,
+    comment    => 'condor user',
+    managehome => false,
+    forcelocal => true
+  }
+  
   
 }
