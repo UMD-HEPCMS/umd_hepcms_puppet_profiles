@@ -1,5 +1,5 @@
 # Test file for INT, to pick up by the VMTEST
-class profile::interactive ($nisup => false, $test => false) {
+class profile::interactive ($nisup = false, $test = false) {
 
  #All execs will use this path
  Exec { path => ['/bin/', '/usr/bin/', '/usr/bin/yum/' ] }
