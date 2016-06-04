@@ -6,6 +6,14 @@ class profile::osg::cefiles::configure {
   # Files required will be
   # http cert
   
+  # ensure grid-security exists
+  file { '/etc/grid-security':
+    ensure => 'directory',
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0755',
+  }
+  
   # ensure /etc/grid-security/http directory exists
   file { '/etc/grid-security/http':
     ensure => 'directory',
@@ -13,6 +21,27 @@ class profile::osg::cefiles::configure {
     group  => 'tomcat',
     mode   => '0755',
   }
+  
+  # ensure this file exists
+  file { '/etc/grid-security/hostcert.pem':
+    ensure  => 'file',
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0444',
+    source  => 'file:///data/site_conf/certs/grid-security/hostcert.pem',
+    require => File['/etc/grid-security'],
+  }
+  
+  # ensure this file exists
+  file { '/etc/grid-security/hostkey.pem':
+    ensure  => 'file',
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0400',
+    source  => 'file:///data/site_conf/certs/grid-security/hostkey.pem',
+    require => File['/etc/grid-security'],
+  }
+  
   file { '/etc/grid-security/http/httpcert.pem':
     ensure  => 'file',
     owner   => 'tomcat',
