@@ -80,7 +80,7 @@ class profile::interactive ($nisup = false, $test = false) {
  
  exec { 'NIS activation':
   #command => 'authconfig --enablenis --nisdomain=nishepcms.privnet --nisserver=10.1.0.1 --disablefingerprint --disablelocauthorize --enablemd5 --update',
-  command => 'NIS doesn't appear to be up',
+  command => 'echo "NIS doesn't appear to be up"',
   unless => $test,
   $test => true,
  }
