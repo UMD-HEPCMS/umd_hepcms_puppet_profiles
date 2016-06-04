@@ -1,5 +1,5 @@
 # Test file for INT, to pick up by the VMTEST
-class profile::interactive ($nisup = false, $test = true) {
+class profile::interactive {
 
  #All execs will use this path
  Exec { path => ['/bin/', '/usr/bin/', '/usr/bin/yum/' ] }
@@ -77,11 +77,11 @@ class profile::interactive ($nisup = false, $test = true) {
   onlyif => 'yum grouplist "Desktop Platform Development" | grep "^Installed Groups"',
   logoutput => true,
  }
- if $test {
+ $test = undef ? {
   exec { 'NIS activation':
    #command => 'authconfig --enablenis --nisdomain=nishepcms.privnet --nisserver=10.1.0.1 --disablefingerprint --disablelocauthorize --enablemd5 --update',
    command => 'echo "NIS does not appear to be up"',
-   $test = false,
+   $test = true,
   }
  }
 }
