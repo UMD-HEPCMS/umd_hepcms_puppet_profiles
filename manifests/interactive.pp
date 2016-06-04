@@ -1,5 +1,5 @@
 # Test file for INT, to pick up by the VMTEST
-class profile::interactive ($nisup => false) {
+class profile::interactive ($nisup => false, $test => false) {
 
  #All execs will use this path
  Exec { path => ['/bin/', '/usr/bin/', '/usr/bin/yum/' ] }
@@ -81,7 +81,7 @@ class profile::interactive ($nisup => false) {
  exec { 'NIS activation':
   #command => 'authconfig --enablenis --nisdomain=nishepcms.privnet --nisserver=10.1.0.1 --disablefingerprint --disablelocauthorize --enablemd5 --update',
   command => 'NIS doesn't appear to be up',
-  unless => $nisup,
-  $nisup => true,
+  unless => $test,
+  $test => true,
  }
 }
