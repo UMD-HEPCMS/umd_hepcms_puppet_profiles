@@ -21,6 +21,23 @@ class profile::osg::ce {
     forcelocal => true
   }
   
+  user { 'rsv':
+    ensure     => 'present',
+    name       => 'rsv',
+    gid        => rsv,
+    home       => '/home/rsv', # wherever package puts $HOME for user
+    shell      => '/bin/bash', # /bin/bash or /sbin/nologin
+    system     => true,
+    comment    => 'hdfs user synchronized across all systems',
+    managehome => false,
+    forcelocal => true
+  }
+   group { 'rsv':
+    ensure => 'present',
+    name   => 'rsv',
+    system => true,
+    forcelocal => true
+  }
   user { 'condor':
     ensure     => 'present',
     name       => 'condor',
