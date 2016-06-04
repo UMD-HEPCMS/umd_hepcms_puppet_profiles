@@ -6,14 +6,6 @@ class profile::osg::cefiles::configure {
   # Files required will be
   # http cert
   
-  # ensure grid-security exists
-  file { '/etc/grid-security':
-    ensure => 'directory',
-    owner  => 'root',
-    group  => 'root',
-    mode   => '0755',
-  }
-  
   # ensure /etc/grid-security/http directory exists
   file { '/etc/grid-security/http':
     ensure => 'directory',
