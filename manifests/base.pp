@@ -50,11 +50,11 @@ Class['::puppetlabs_yum'] -> Class['::facter']
        domainname => 'nishepcms.privnet',
        server => '10.1.0.1',
     }    
-# NIS activation step    
-# exec { 'NIS activation':
-#  command => 'echo "Ensuring NIS is set up" ; /usr/sbin/authconfig --enablenis --nisdomain=nishepcms.privnet --nisserver=10.1.0.1 --disablefingerprint --disablelocauthorize --enablemd5 --update',
- # logoutput => true,
-# }
+ #NIS activation step    
+ exec { 'NIS activation':
+  command => 'echo "Ensuring NIS is set up" ; /usr/sbin/authconfig --enablenis --nisdomain=nishepcms.privnet --nisserver=10.1.0.1 --disablefingerprint --disablelocauthorize --enablemd5 --update',
+  logoutput => true,
+ }
 
   include epel
   include firewall
