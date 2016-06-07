@@ -77,9 +77,9 @@ class profile::interactive {
   onlyif => 'yum grouplist "Desktop Platform Development" | grep "^Installed Groups"',
   logoutput => true,
  }
- exec { 'NIS activation':
-  command => 'echo "Ensuring NIS is set up" ; authconfig --enablenis --nisdomain=nishepcms.privnet --nisserver=10.1.0.1 --disablefingerprint --disablelocauthorize --enablemd5 --update',
-  logoutput => true,
- }
+# exec { 'NIS activation':
+#  command => 'echo "Ensuring NIS is set up" ; authconfig --enablenis --nisdomain=nishepcms.privnet --nisserver=10.1.0.1 --disablefingerprint --disablelocauthorize --enablemd5 --update',
+#  logoutput => true,
+# } # Moved to base.pp
 
 }
