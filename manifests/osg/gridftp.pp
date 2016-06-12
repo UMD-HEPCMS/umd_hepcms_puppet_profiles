@@ -12,6 +12,13 @@ class profile::osg::gridftp {
     ensure  => 'present',
   }
   
+  package { 'lcmaps-plugins-gums-client':
+    ensure => 'installed'
+  }
+  package { 'lcmaps-plugins-basic':
+    ensure => 'installed'
+  }
+
   # ensure the globus-gridftp-server starts
    service { 'globus-gridftp-server':
     ensure     => 'running',
