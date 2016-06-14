@@ -30,4 +30,13 @@ file { '/etc/sysconfig/globus-gridftp-server':
      mode    => '0644',
      source => 'file:///data/site_conf/gridftp/lcmaps.db',
   }
+  
+    file { '/etc/gridftp.conf':
+     ensure  => 'file',
+     owner   => 'root',
+     group   => 'root',
+     mode    => '0644',
+     source => 'file:///data/site_conf/gridftp/gridftp.conf',
+  }
+
 }
