@@ -1,7 +1,7 @@
 # == Class: profile::osg::gftp::install 
 class profile::osg::gftp::install {
 
-  include ::osg::gridftp
+#  include ::osg::gridftp
   
   # ensure that osg-se-hadoop-client is installed
 /*  package { 'osg-se-hadoop-client':
