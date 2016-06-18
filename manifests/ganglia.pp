@@ -1,8 +1,8 @@
 class profile::ganglia {
 
   package { 'ganglia-gmond':
-    ensure => 'present',
-  	#before => Service['gmond'],
+    ensure => 'installed',
+    provider => "yum",
   }
   # pull file from /data
   file { '/etc/ganglia/gmond.conf':
@@ -11,11 +11,10 @@ class profile::ganglia {
     require => Package['ganglia-gmond'],
   }
  
-  service {'gmond ':
-   ensure => 'running',
-   enable => true,
-   hasstatus => true,
-   hasrestart => true,
-   require => File['/etc/ganglia/gmond.conf'],
-  }  
+ service {"gmond":
+ ensure => "running",
+ enabled => "true",
+  require => File['/etc/ganglia/gmond.conf'],
+}
+ 
 }
