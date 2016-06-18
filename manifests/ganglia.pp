@@ -14,7 +14,7 @@ class profile::ganglia {
  service {"gmond":
  ensure => "running",
  enabled => "true",
-  require => File['/etc/ganglia/gmond.conf'],
+#require => File['/etc/ganglia/gmond.conf'],
 }
  
 }
