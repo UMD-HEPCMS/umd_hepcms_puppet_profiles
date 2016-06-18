@@ -2,7 +2,7 @@ class profile::ganglia {
 
   package { 'ganglia-gmond':
     ensure => 'present',
-  	before => Service['gmond'],
+  	#before => Service['gmond'],
   }
   # pull file from /data
   file { '/etc/ganglia/gmond.conf':
