@@ -1,15 +1,6 @@
 # == Class: profile::osg::sefiles::configure
 class profile::osg::sefiles::configure  {
 
-#/etc/conf/hdfs-site.xml
-#/etc/conf/core-site.xml
-
-
-
-#/etc/sysconfig/bestman2
-#/etc/bestman2/conf/bestman2.rc
-#/var/log/bestman2 directory
-  
   # ensure the grid-security directory exists
   file { '/etc/grid-security':
    ensure => directory,
@@ -46,6 +37,23 @@ class profile::osg::sefiles::configure  {
     group   => 'bestman',
     mode    => '0400',
     source  => 'file:///data/site_conf/sefiles/bestman/bestmankey.pem',
-    
+  }
+  
+  file { '/etc/sysconfig/bestman2':
+   ensure  => 'file',
+   source  => 'file:///data/site_conf/sefiles/bestman/sysconfig/bestman2',
+  }
+  file { '/etc/bestman2/conf/bestman2.rc':
+   ensure  => 'file',
+   source => 'file:///data/site_conf/sefiles/bestman/conf/bestman2.rc',
+  }
+  file { '/etc/hadoop/conf/hdfs-site.xml':
+   ensure  => 'file',
+   source => 'file:///data/site_conf/sefiles/hadoop/hdfs-site.xml',
+  }
+  
+  file { '/etc/hadoop/conf/core-site.xml':
+   ensure  => 'file',
+   source => 'file:///data/site_conf/sefiles/hadoop/core-site.xml',
   }
 }
