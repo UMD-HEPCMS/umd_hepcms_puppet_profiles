@@ -128,7 +128,7 @@ class profile::osg::cefiles::configure {
   file { '/etc/condor/config.d/local.conf':
     ensure  => 'file',
  #   mode    => '0400',
-    source  => 'file:///data/site_conf/condor/local.conf',
+    source  => 'file:///data/site_conf/condor-ce/CE-condor-local.conf',
     require => File['/etc/condor/config.d/'],
   }
   
