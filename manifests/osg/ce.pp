@@ -9,7 +9,7 @@ class profile::osg::ce {
     home       => '/home/tomcat', # wherever package puts $HOME for user
     shell      => '/bin/true', # /bin/bash or /sbin/nologin
     system     => true,
-    comment    => tomcat user for CE',
+    comment    => 'tomcat user for CE',
     managehome => false,
     forcelocal => true
   }
