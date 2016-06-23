@@ -27,8 +27,6 @@ class profile::osg::ce {
     gid        => 100,
     home       => '/home/rsv', # wherever package puts $HOME for user
     shell      => '/bin/bash', # /bin/bash or /sbin/nologin
-    system     => true,
-    comment    => 'rsv user',
     managehome => false,
     forcelocal => false
   }
