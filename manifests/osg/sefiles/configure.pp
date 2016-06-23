@@ -56,4 +56,11 @@ class profile::osg::sefiles::configure  {
    ensure  => 'file',
    source => 'file:///data/site_conf/sefiles/hadoop/core-site.xml',
   }
+  
+  file { '/var/log/bestman2':
+    ensure => 'directory',
+    owner  => 'bestman',
+    group  => 'bestman',
+    mode   => '0755',
+  }
 }
