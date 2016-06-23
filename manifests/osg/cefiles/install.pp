@@ -17,5 +17,8 @@ class profile::osg::cefiles::install {
   }
   # RSV package for monitoring (doesn't have to be on the same node)
   # https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/InstallRSV
-
+  package { 'rsvr':
+    ensure => 'present',
+	name => 'rsv',
+  }
 }
