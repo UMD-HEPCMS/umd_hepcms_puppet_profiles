@@ -32,12 +32,13 @@ class profile::osg::ce {
     managehome => false,
     forcelocal => false
   }
-   group { 'rsv':
-    ensure => 'present',
-    name   => 'rsv',
-    system => true,
-    forcelocal => true
-  }
+# in old system, rsv was part of users and that was fine
+#    group { 'rsv':
+#     ensure => 'present',
+#     name   => 'rsv',
+#     system => true,
+#     forcelocal => true
+#   }
   user { 'condor':
     ensure     => 'present',
     name       => 'condor',
