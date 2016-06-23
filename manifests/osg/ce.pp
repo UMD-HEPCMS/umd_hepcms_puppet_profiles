@@ -7,9 +7,9 @@ class profile::osg::ce {
     name       => 'tomcat',
     gid        => tomcat,
     home       => '/home/tomcat', # wherever package puts $HOME for user
-    shell      => '/bin/bash', # /bin/bash or /sbin/nologin
+    shell      => '/bin/true', # /bin/bash or /sbin/nologin
     system     => true,
-    comment    => 'hdfs user synchronized across all systems',
+    comment    => tomcat user for CE',
     managehome => false,
     forcelocal => true
   }
@@ -24,13 +24,13 @@ class profile::osg::ce {
   user { 'rsv':
     ensure     => 'present',
     name       => 'rsv',
-    gid        => rsv,
+    gid        => 100,
     home       => '/home/rsv', # wherever package puts $HOME for user
     shell      => '/bin/bash', # /bin/bash or /sbin/nologin
     system     => true,
-    comment    => 'hdfs user synchronized across all systems',
+    comment    => 'rsv user',
     managehome => false,
-    forcelocal => true
+    forcelocal => false
   }
    group { 'rsv':
     ensure => 'present',
