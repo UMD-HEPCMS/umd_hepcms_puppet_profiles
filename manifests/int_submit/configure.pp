@@ -8,7 +8,7 @@ file { '/etc/condor/config.d':
 
 file { '/etc/condor/config.d/local.conf':
    ensure => file,
-   contents => "DAEMON_LIST = MASTER, SCHEDD",
+   content => "DAEMON_LIST = MASTER, SCHEDD",
 }
 
 file { '/etc/condor/config.d/cluster.conf':
