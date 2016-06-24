@@ -9,6 +9,12 @@ class profile::osg::sefiles::configure  {
   file { '/etc/grid-security/bestman':
    ensure => directory,
   }
+  # bestman version of sudoers
+  file { '/etc/sudoers':
+   ensure => file,
+   owner => root,
+   source  => 'file:///data/site_conf/sefiles/bestman/sudoers',
+  }
   # ensure host cert
   file { '/etc/grid-security/hostcert.pem':
    ensure => file,
