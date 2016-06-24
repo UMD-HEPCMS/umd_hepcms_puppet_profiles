@@ -3,11 +3,7 @@ class profile::osg::gftp::install {
 
 #  include ::osg::gridftp
   
-  # ensure that osg-se-hadoop-client is installed
-/*  package { 'osg-se-hadoop-client':
-    ensure  => 'installed',
-    require => Yumrepo['osg'], # If the package comes from OSG repos, then may also want to include OSG class 
-  } */
+  # ensure that osg-se-hadoop-gridftp is installed
    package { ' osg-se-hadoop-gridftp':
     ensure  => 'present',
   }
