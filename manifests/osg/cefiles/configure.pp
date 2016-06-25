@@ -22,6 +22,14 @@ class profile::osg::cefiles::configure {
     mode   => '0755',
   }
   
+    # ensure /mnt/hadoop/osg/rsv directory exists
+  file { '/mnt/hadoop/osg/rsv':
+    ensure => 'directory',
+    owner  => 'rsv',
+    group  => 'users',
+    mode   => '0755',
+  }
+  
   # ensure this file exists
   file { '/etc/grid-security/rsv/rsvcert.pem':
     ensure  => 'file',
