@@ -3,7 +3,7 @@ class profile::osg::glexec::install {
 
 # ensure that condor-procd is installed
   
-  package { ' condor-procd':
+  package { 'condor-procd':
     ensure  => 'present',
   }
 
