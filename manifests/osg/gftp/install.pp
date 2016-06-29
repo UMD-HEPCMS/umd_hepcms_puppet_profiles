@@ -4,7 +4,7 @@ class profile::osg::gftp::install {
 #  include ::osg::gridftp
   
   # ensure that osg-se-hadoop-gridftp is installed
-   package { ' osg-se-hadoop-gridftp':
+   package { 'osg-se-hadoop-gridftp':
     ensure  => 'present',
   }
   
