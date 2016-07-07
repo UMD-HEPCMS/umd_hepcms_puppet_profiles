@@ -22,7 +22,7 @@ class profile::osg::cvmfs::config {
   file { '/etc/cvmfs/default.local':
     ensure  => 'file',
     path    => '/etc/cvmfs/default.local',
-    content => template('osg/cvmfs/default.local.erb'),
+    content => template('profile/cvmfs/default.local.erb'),
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
