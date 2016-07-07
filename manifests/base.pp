@@ -70,6 +70,10 @@ Class['::puppetlabs_yum'] -> Class['::facter']
 
   $extra_packages = hiera_array('extra_packages', [])
   ensure_packages($extra_packages)
+  
+  $cron_jobs = hiera_hash('cron::jobs', {})
+  create_resources('cron', $cron_jobs)  
+
 # make symlink 
 # http://www.puppetcookbook.com/posts/creating-a-symlink.html
 # ln -s /mnt/hadoop /hadoop
