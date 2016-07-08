@@ -72,7 +72,7 @@ Class['::puppetlabs_yum'] -> Class['::facter']
   ensure_packages($extra_packages)
   
   $cron_jobs = hiera_hash('cron::jobs', undef)
-  create_resources('cron',$cron_jobs)  
+#  create_resources('cron',$cron_jobs)  
 
 # make symlink 
 # http://www.puppetcookbook.com/posts/creating-a-symlink.html
