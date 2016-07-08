@@ -71,7 +71,7 @@ Class['::puppetlabs_yum'] -> Class['::facter']
   $extra_packages = hiera_array('extra_packages', [])
   ensure_packages($extra_packages)
   
-  $cron_jobs = hiera('cron::jobs', {})
+  $cron_jobs = hiera_array('cron::jobs', [])
   create_resources('cron',$cron_jobs)  
 
 # make symlink 
