@@ -1,10 +1,11 @@
 # == Class: profile::osg::sefiles::configure
 class profile::osg::sefiles::configure  {
-
+  include osg::cacerts
+  
   # ensure the grid-security directory exists
-  file { '/etc/grid-security':
-   ensure => directory,
-  }
+#   file { '/etc/grid-security':
+#    ensure => directory,
+#   }
   # ensure bestman directory exists
   file { '/etc/grid-security/bestman':
    ensure => directory,
