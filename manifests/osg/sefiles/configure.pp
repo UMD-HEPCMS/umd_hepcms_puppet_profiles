@@ -11,11 +11,15 @@ class profile::osg::sefiles::configure  {
    ensure => directory,
   }
   # bestman version of sudoers
-  file { '/etc/sudoers':
-   ensure => file,
-   owner => root,
-   source  => 'file:///data/site_conf/sefiles/bestman/sudoers',
-  }
+class { 'sudo': }
+sudo::conf { 'bestman2':
+  source => 'file:///data/site_conf/sefiles/bestman/sudoers',
+}
+#   file { '/etc/sudoers':
+#    ensure => file,
+#    owner => root,
+#    source  => 'file:///data/site_conf/sefiles/bestman/sudoers',
+#   }
   # ensure host cert
   file { '/etc/grid-security/hostcert.pem':
    ensure => file,
