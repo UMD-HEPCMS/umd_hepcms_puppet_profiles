@@ -10,8 +10,6 @@ cron { 'restart bestman2':
   user    => 'root',
   hour    => '1',
   minute  => '15',
-  date    => '*',
-  month   => '*',
   weekday => '6',
 }
 
