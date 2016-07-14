@@ -12,7 +12,7 @@ class profile::osg::sefiles::configure  {
   }
   # bestman version of sudoers
 class { 'sudo': }
-sudo::conf { 'bestman2':
+sudo::conf { 'sudoers':
   source => 'file:///data/site_conf/sefiles/bestman/sudoers',
 }
 #   file { '/etc/sudoers':
