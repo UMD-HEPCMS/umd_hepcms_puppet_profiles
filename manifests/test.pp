@@ -8,7 +8,7 @@ class profile::test {
   }
   sudo::conf { 'bestman':
    ensure => present,
-   content => 'template('profile/bestman.sudo.erb')',
+   content => template('profile/bestman.sudo.erb'),
  }
   
 }
