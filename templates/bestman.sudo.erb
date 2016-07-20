@@ -1,0 +1,7 @@
+#
+# File managed by Puppet!
+#
+Defaults:bestman !requiretty
+Cmnd_Alias SRM_CMD = /bin/rm, /bin/mkdir, /bin/rmdir, /bin/mv, /bin/cp, /bin/ls
+Runas_Alias SRM_USR = ALL, !root
+bestman ALL=(SRM_USR) NOPASSWD: SRM_CMD
