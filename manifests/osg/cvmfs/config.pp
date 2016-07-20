@@ -1,7 +1,7 @@
 # Private class: See README.md.
 class profile::osg::cvmfs::config {
 
-  file { '/etc/fuse.conf':
+  /*file { '/etc/fuse.conf':
     ensure  => 'file',
     path    => '/etc/fuse.conf',
     content => "user_allow_other\n",
@@ -17,7 +17,7 @@ class profile::osg::cvmfs::config {
     line   => '/cvmfs /etc/auto.cvmfs',
     match  => '^/cvmfs.*',
     notify => Service['autofs'],
-  }
+  }*/
 
   file { '/etc/cvmfs/default.local':
     ensure  => 'file',
@@ -28,7 +28,7 @@ class profile::osg::cvmfs::config {
     mode    => '0644',
   }
 
-  if empty($osg::cvmfs::server_urls) {
+/*  if empty($osg::cvmfs::server_urls) {
     file { '/etc/cvmfs/domain.d/cern.ch.local':
       ensure => 'absent',
       path   => '/etc/cvmfs/domain.d/cern.ch.local',
@@ -59,7 +59,7 @@ class profile::osg::cvmfs::config {
       mode    => '0644',
       notify  => Exec['cvmfs_config reload'],
     }
-  }
+  }*/
 
   file { '/tmp/cvmfs':
     ensure => 'directory',
