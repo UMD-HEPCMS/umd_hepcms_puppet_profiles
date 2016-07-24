@@ -12,11 +12,11 @@ class profile::osg::sefiles::configure  {
   }
   # bestman version of sudoers
 
-/*sudo::conf { 'sudoers-bestman':
-  ensure => present,
-  source => 'file:///data/site_conf/sefiles/bestman/sudoers-bestman',
-  sudo_file_name  => 'sudoers-bestman',
-}*/
+###sudo::conf { 'sudoers-bestman':
+###  ensure => present,
+###  source => 'file:///data/site_conf/sefiles/bestman/sudoers-bestman',
+###  sudo_file_name  => 'sudoers-bestman',
+###}
 
 #   file { '/etc/sudoers':
 #    ensure => file,
