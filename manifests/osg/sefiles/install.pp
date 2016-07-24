@@ -6,7 +6,7 @@ class profile::osg::sefiles::install {
   }
 ## restart the service every Saturday 1:15am cron job - per US CMS T3 recommendation
 cron { 'restart bestman2':
-  command => '/sbin/service bestman2 restart',
+  command => '/sbin/service bestman2 restart >/dev/null 2>&1',
   user    => 'root',
   hour    => '1',
   minute  => '15',
