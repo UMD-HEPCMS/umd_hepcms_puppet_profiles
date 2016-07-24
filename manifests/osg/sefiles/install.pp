@@ -8,7 +8,7 @@ class profile::osg::sefiles::install {
 cron { 'restart bestman2':
   command => '/sbin/service bestman2 restart >/dev/null 2>&1',
   user    => 'root',
-  hour    => '1',
+  hour    => '01',
   minute  => '15',
   weekday => '6',
 }
