@@ -6,4 +6,10 @@ service { 'bestman2':
     hasstatus  => true,
     hasrestart => true,
   }
+  
+ service { 'gums-client-cron':
+   ensure => 'running',
+   enable => true,
+   hasstatus  => true,
+   hasrestart => true,
 }
