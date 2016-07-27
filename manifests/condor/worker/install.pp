@@ -4,6 +4,9 @@ class profile::condor::worker::install {
     ensure => 'installed',
   }
   
-  node 'r510-0-4' { 'tuned':
-    ensure => 'installed',
+  node 'r510-0-4' { 
+    package { 'tuned':
+      ensure => 'installed',
+    }
+  }
 }
