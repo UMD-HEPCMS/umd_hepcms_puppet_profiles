@@ -13,3 +13,4 @@ service { 'bestman2':
    hasstatus  => true,
    hasrestart => true,
 }
+}
