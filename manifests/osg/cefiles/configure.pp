@@ -295,7 +295,7 @@ class profile::osg::cefiles::configure {
   file { '/etc/osg/config.d/30-rsv.ini':
     ensure  => 'file',
   #  mode    => '0400',
-    source  => 'file:///data/site_conf/condor-ce/30-rsv.ini',
+    source  => 'file:///data/site_conf/ini/30-rsv.ini',
     require => File['/etc/osg/config.d/'],
   }
   
