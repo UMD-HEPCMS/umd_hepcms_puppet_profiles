@@ -5,11 +5,11 @@ file { '/etc/condor/config.d':
   ensure => 'directory',
 }
 
-/*file { '/etc/condor/config.d/cluster.conf':
+file { '/etc/condor/config.d/cluster.conf':
     ensure  => 'file',
-    source  => 'file:///data/site_conf/condor-worker/cluster.conf',
-    require => File['/etc/condor/config.d/'],
+    content => "DAEMON_LIST = MASTER, COLLECTOR, NEGOTIATOR, SCHEDD",
 }
+/*
 file { '/etc/condor/config.d/local.conf':
     ensure  => 'file',
     source  => 'file:///data/site_conf/condor-worker/local.conf',
@@ -17,3 +17,7 @@ file { '/etc/condor/config.d/local.conf':
 } 
 */
 }
+#/etc/condor/condor_config
+#/etc/condor/config.d/10-batch_gahp_blahp.config 
+#/etc/condor/config.d/cluster.conf
+#/etc/condor/config.local
