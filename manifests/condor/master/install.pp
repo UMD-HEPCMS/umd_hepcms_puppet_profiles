@@ -1,6 +1,9 @@
 # Install Class for Condor master Node
 class profile::condor::master::install {
-  package { 'condor':
+
+/* 
+ package { 'condor':
     ensure => 'installed',
   }
+*/
 }
