@@ -1,5 +1,5 @@
 # Install Class for Condor Submit INT Node
-class profile::int_submit::install {
+class profile::condor::submit::install {
   package { 'condor':
     ensure => 'installed',
   }

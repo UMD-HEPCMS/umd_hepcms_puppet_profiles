@@ -1,6 +1,5 @@
 # configure class for Condor Submit INT
-class profile::int_submit::configure {
-
+class profile::condor::submit::configure {
 
 file { '/etc/condor/config.d':
   ensure => 'directory',

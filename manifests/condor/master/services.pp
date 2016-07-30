@@ -1,5 +1,5 @@
-# Condor Submit Node Services
-class profile::int_submit::services {
+# Condor Master Node Services
+class profile::condor::master::services {
 
  service {'condor':
    ensure => 'running',
