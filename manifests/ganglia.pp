@@ -12,8 +12,10 @@ class profile::ganglia {
   }
  
  service {"gmond":
-  ensure => "running",
-  enable => "true",
+  ensure => 'running',
+  enable => 'true',
+  hasstatus => true,
+  hasrestart => true,
   require => Package['ganglia-gmond'],
 }
  
