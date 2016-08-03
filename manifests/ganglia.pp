@@ -12,9 +12,9 @@ class profile::ganglia {
   }
  
  service {"gmond":
- ensure => "running",
- enable => "true",
-#require => File['/etc/ganglia/gmond.conf'],
+  ensure => "running",
+  enable => "true",
+  require => Package['ganglia-gmond'],
 }
  
 }
