@@ -3,8 +3,17 @@ class profile::osg::cefiles::configure {
   
   include osg::cacerts
   
-  # Files required will be
-  # http cert
+  # ensure gratia gridftp-transfer dir exists
+  file { '/etc/gratia/gridftp-transfer':
+   ensure => directory,
+  }
+  
+   # Probe Config file
+  file { '/etc/gratia/gridftp-transfer/ProbeConfig':
+   ensure => file,
+   owner => root,
+   source  => 'file:///data/site_conf/condor-ce/gratia/ProbeConfig',
+  }
   
   # ensure /etc/grid-security/http directory exists
   file { '/etc/grid-security/http':
