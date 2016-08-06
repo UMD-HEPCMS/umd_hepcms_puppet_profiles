@@ -1,6 +1,17 @@
 # == Class: profile::osg::gftp::configure 
 class profile::osg::gftp::configure {
 
+  # ensure gratia gridftp-transfer dir exists
+  file { '/etc/gratia/gridftp-transfer':
+   ensure => directory,
+  }
+  
+   # Probe Config file
+  file { '/etc/gratia/gridftp-transfer/ProbeConfig':
+   ensure => file,
+   owner => root,
+   source  => 'file:///data/site_conf/gridftp/gratia/ProbeConfig',
+  }
 file { '/etc/grid-security/hostkey.pem':
       ensure => 'file',
       owner  => 'root',
