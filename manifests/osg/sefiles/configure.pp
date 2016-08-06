@@ -2,10 +2,17 @@
 class profile::osg::sefiles::configure  {
   include osg::cacerts
   
-  # ensure the grid-security directory exists
-#   file { '/etc/grid-security':
-#    ensure => directory,
-#   }
+  # ensure gratia gridftp-transfer dir exists
+  file { '/etc/gratia/gridftp-transfer':
+   ensure => directory,
+  }
+  
+   # Probe Config file
+  file { '/etc/gratia/gridftp-transfer/ProbeConfig':
+   ensure => file,
+   owner => root,
+   source  => 'file:///data/site_conf/sefiles/gratia/ProbeConfig',
+  }
   # ensure bestman directory exists
   file { '/etc/grid-security/bestman':
    ensure => directory,
