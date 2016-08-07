@@ -38,6 +38,43 @@ Class['::puppetlabs_yum'] -> Class['::facter']
   include iptables
   include ntp
   include sudo
+  include nfs
+  include augeasproviders_shellvar
+  include inifile
+### add when you're ready, and ensure it's got the right settings for ovirt extension module
+#  include ovirt
+### you're going to have to do something about these variables
+# class { 'sudo':
+#   purge => false,
+# }
+# class { 'ovirt::engine':
+#   admin_password            => '$admin_password',
+#   application_mode          => 'virt',
+#   config_allinone           => true,
+#   local_storage_path        => '/opt/ovirt/data',
+#   setup_fqdn                => 'hepcms-ovirt2.privnet',
+#   db_password               => '$db_password',
+#   manage_firewall           => false,
+#   update_firewall           => false,
+#   manage_postgresql_server  => true,
+#   nfs_config_enabled        => false,
+#   run_engine_setup          => false,
+#   storage_type              => 'none',
+#   enable_reports            => false,
+#   storeconfigs_enabled      => false,
+# }  
+### I think you have to run this to setup the engine by hand by command line, not in here!
+# engine-setup --config-append=/var/lib/ovirt-engine/setup/answers/ovirt-engine-setup.conf
+### some more setup that ws done by hand on the old ovirt
+# class { 'nfs':
+#  server          => true,
+#  manage_firewall => false,
+#  manage_idmapd   => false,
+#  exports         => {
+#    '/virt/iso'           => [{'host' => '127.0.0.1', 'options' => 'rw,insecure,all_squash,no_subtree_check,anonuid=36,anongid=36'}],
+#    '/virt/import_export' => [{'host' => '127.0.0.1', 'options' => 'rw,insecure,all_squash,no_subtree_check,anonuid=36,anongid=36'}],
+#  }
+#}
 
   # clustershell library
   include ::clustershell 
