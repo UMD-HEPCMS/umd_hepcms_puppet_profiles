@@ -10,5 +10,10 @@ class profile::test {
    ensure => present,
    content => template('profile/bestman.sudo.erb'),
  }
+ 
+# added test module 
+ node 'hepcms-in9.privnet' {
+ include arman-puppettest 
+}
   
 }
