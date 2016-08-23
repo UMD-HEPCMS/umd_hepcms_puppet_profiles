@@ -1,12 +1,12 @@
 # == Class: profile::base
 class profile::base inherits profile::params {
-  # Define globals 
+  # Define globals
   Firewall {
     before  => Class['iptables::post'],
     require => Class['iptables::pre'],
   }
   Exec { path => ['/bin/', '/usr/bin/', '/usr/sbin/' ] }
-# add in firewall rules resource (11 Aug 2015)  
+# add in firewall rules resource (11 Aug 2015)
 $firewall_rules = hiera_hash('firewall_rules', {})
 create_resources('firewall', $firewall_rules)
 
@@ -49,8 +49,8 @@ Class['::puppetlabs_yum'] -> Class['::facter']
     class{ '::nisclient':
       domainname => 'nishepcms.privnet',
      server => '10.1.0.1',
-   }    
- #NIS activation step    
+   }
+ #NIS activation step
  exec { 'NIS activation':
   command => 'echo "Ensuring NIS is set up" ; authconfig --enablenis --nisdomain=nishepcms.privnet --nisserver=10.1.0.1 --disablefingerprint --disablelocauthorize --enablemd5 --update',
   logoutput => true,
@@ -63,21 +63,21 @@ Class['::puppetlabs_yum'] -> Class['::facter']
   include sudo
 
   # clustershell library
-  include ::clustershell 
+  include ::clustershell
   # Modules only applied to systems based on facts - these determinations are done by the module
   include omsa
   include ovirt::guest
 
   $extra_packages = hiera_array('extra_packages', [])
   ensure_packages($extra_packages)
-  
-  $cron_jobs = hiera_hash('cron::jobs', undef)
-#  create_resources('cron',$cron_jobs)  
 
-# make symlink 
+  $cron_jobs = hiera_hash('cron::jobs', undef)
+#  create_resources('cron',$cron_jobs)
+
+# make symlink
 # http://www.puppetcookbook.com/posts/creating-a-symlink.html
 # ln -s /mnt/hadoop /hadoop
-# ln -s /mnt/hadoop/cms/store /store 
+# ln -s /mnt/hadoop/cms/store /store
   file { '/hadoop':
     ensure => 'symlink',
     target => '/mnt/hadoop/cms',
@@ -88,14 +88,14 @@ Class['::puppetlabs_yum'] -> Class['::facter']
   }
   file { "/sharesoft":
     ensure => "directory",
-  } 
+  }
   file { "/sharesoft/osg":
     ensure => "directory",
-  }    
+  }
   file { '/sharesoft/osg/ce':
     ensure => 'symlink',
     target => '/data/osg/scripts/',
-  }  
+  }
   file { '/sharesoft/cmssw':
     ensure => 'symlink',
     target => '/cvmfs/cms.cern.ch',
@@ -115,4 +115,11 @@ service { 'NetworkManager': ensure => 'stopped', enable => false }
 class { 'yum_cron':
   yum_autoupdate_ensure => 'absent'
 }
+  exec { "modprobe tcp_htcp":
+    unless => 'sysctl -a | grep htcp'
+  }
+  class {'::tuned':
+      profile => 'UMD-T3',
+      source => 'file:///data/site_conf/tune-profiles/UMD-T3/',
+    }
 }
