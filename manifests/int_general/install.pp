@@ -47,6 +47,6 @@ class profile::int_general::install {
  }
 
  package { 'python-pip':
-   ensure => installed,
+  ensure => installed,
  }
 }
