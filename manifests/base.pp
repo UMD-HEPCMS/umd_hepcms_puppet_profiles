@@ -5,7 +5,7 @@ class profile::base inherits profile::params {
     before  => Class['iptables::post'],
     require => Class['iptables::pre'],
   }
-  Exec { path => ['/bin/', '/usr/bin/', '/usr/sbin/' ] }
+  Exec { path => ['/bin/', '/usr/bin/', '/usr/sbin/', '/sbin' ] }
 # add in firewall rules resource (11 Aug 2015)
 $firewall_rules = hiera_hash('firewall_rules', {})
 create_resources('firewall', $firewall_rules)
