@@ -11,10 +11,6 @@ class profile::test {
    content => template('profile/bestman.sudo.erb'),
  }
  
-# added test module 
- node 'hepcms-in9.privnet' {
- include arman-puppettest 
-}
 
 cron { 'get_omsa_reports':
   command => '/usr/bin/bash /data/monitoring/scripts/run_omreport.sh',
