@@ -11,13 +11,13 @@ class profile::ovirt::all_in_one inherits profile::params {
     "${profile::params::ovirt_base_storage_path}/import_export" => [$nfs_export_values],
   }
 
-  class { 'profile::nfs':
+  class { '::nfs':
     server          => true,
     manage_firewall => false,
     exports         => $nfs_exports,
   }
 
-  class { 'profile::ovirt::engine':
+  class { '::ovirt::engine':
     application_mode         => 'virt',
     config_allinone          => true,
     local_storage_path       => "${profile::params::ovirt_base_storage_path}/data",
@@ -31,7 +31,7 @@ class profile::ovirt::all_in_one inherits profile::params {
     storeconfigs_enabled     => false,
   }
 
-  class { 'profile::ovirt::engine::backup':
+  class { '::ovirt::engine::backup':
     backup_dir => "${profile::params::ovirt_base_storage_path}/backup",
   }
 

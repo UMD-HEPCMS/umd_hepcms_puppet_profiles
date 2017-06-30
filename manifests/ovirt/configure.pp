@@ -1,13 +1,13 @@
 # == Class: profile::ovirt::configure
 class profile::ovirt::configure inherits profile::params {
 ### copied a lot from the base.pp
-  # Define globals
+  # Define globals 
   Firewall {
-    before  => Class['profile::iptables::post'],
-    require => Class['profile::iptables::pre'],
+    before  => Class['iptables::post'],
+    require => Class['iptables::pre'],
   }
   Exec { path => ['/bin/', '/usr/bin/', '/usr/sbin/' ] }
-# add in firewall rules resource (11 Aug 2015)
+# add in firewall rules resource (11 Aug 2015)  
 $firewall_rules = hiera_hash('firewall_rules', {})
 create_resources('firewall', $firewall_rules)
 
@@ -35,10 +35,10 @@ Class['::puppetlabs_yum'] -> Class['::facter']
   include ::selinux
   include epel
   include firewall
-  include profile::iptables
+  include iptables
   include ntp
   include sudo
-  include profile::nfs
+  include nfs
   include augeasproviders_shellvar
   include inifile
 ### add when you're ready, and ensure it's got the right settings for ovirt extension module
@@ -62,7 +62,7 @@ Class['::puppetlabs_yum'] -> Class['::facter']
 #   storage_type              => 'none',
 #   enable_reports            => false,
 #   storeconfigs_enabled      => false,
-# }
+# }  
 ### I think you have to run this to setup the engine by hand by command line, not in here!
 # engine-setup --config-append=/var/lib/ovirt-engine/setup/answers/ovirt-engine-setup.conf
 ### some more setup that ws done by hand on the old ovirt
@@ -77,14 +77,14 @@ Class['::puppetlabs_yum'] -> Class['::facter']
 #}
 
   # clustershell library
-  include profile::clustershell
+  include ::clustershell 
   # Modules only applied to systems based on facts - these determinations are done by the module
-  include profile::omsa
+  include omsa
   $extra_packages = hiera_array('extra_packages', [])
   ensure_packages($extra_packages)
-
+  
   $cron_jobs = hiera_hash('cron::jobs', undef)
-#  create_resources('cron',$cron_jobs)
+#  create_resources('cron',$cron_jobs)  
   class { '::timezone':
     timezone => 'America/New_York',
   }
@@ -101,3 +101,4 @@ class { 'yum_cron':
   yum_autoupdate_ensure => 'absent'
 }
 }
+    

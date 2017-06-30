@@ -1,11 +1,11 @@
 # == Class: profile::nat
 class profile::nat inherits profile::params {
 
-  class { 'profile::iptables::nat':
+  class { 'iptables::nat':
     outiface => $profile::params::public_interface,
   }
 
-  profile::iptables::forward { 'internal':
+  iptables::forward { 'internal':
     internal          => $profile::params::internal_interface,
     external          => $profile::params::public_interface,
     allow_established => true,
