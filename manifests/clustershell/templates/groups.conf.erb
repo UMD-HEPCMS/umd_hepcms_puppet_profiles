@@ -1,0 +1,12 @@
+###
+### File managed by puppet
+###
+
+[Main]
+default: local
+groupsdir: <%= @groups_dir %>
+
+[local]
+map: sed -n 's/^$GROUP:\(.*\)/\1/p' /etc/clustershell/groups
+all: sed -n 's/^all:\(.*\)/\1/p' /etc/clustershell/groups
+list: sed -n 's/^\([0-9A-Za-z_-]*\):.*/\1/p' /etc/clustershell/groups

@@ -1,0 +1,92 @@
+# == Class: ovirt
+#
+# The ovirt::node class installs oVirt Node.
+#
+# === Authors
+#
+# Trey Dockendorf <treydock@gmail.com>
+#
+# === Copyright
+#
+# Copyright 2014 Trey Dockendorf
+#
+class profile::ovirt::node (
+  $management_port      = '54321',
+  $ssl                  = 'true',
+  $manage_firewall      = true,
+  $storeconfigs_enabled = false,
+  $vdsm_configs         = {}
+) {
+
+  validate_bool($manage_firewall)
+  validate_bool($storeconfigs_enabled)
+  validate_hash($vdsm_configs)
+
+  include profile::ovirt
+  include sudo
+
+  Package['vdsm'] -> Vdsm_config<| |> -> File['/etc/vdsm/vdsm.conf']
+  Vdsm_config<| |> ~> Service['vdsmd']
+
+  if $manage_firewall {
+    include profile::ovirt::node::firewall
+  }
+
+  if $storeconfigs_enabled and $::ipaddress_ovirtmgmt {
+    @@host { $::fqdn:
+      ensure        => 'present',
+      host_aliases  => [$::hostname],
+      ip            => $::ipaddress_ovirtmgmt,
+      tag           => 'profile::ovirt::node',
+    }
+  }
+
+  package { 'vdsm':
+    ensure  => installed,
+    name    => 'vdsm',
+    before  => [ File['/etc/vdsm/vdsm.conf'],File['/etc/vdsm/vdsm.id'] ],
+    require => Package['ovirt-release'],
+  }
+
+  file { '/etc/vdsm/vdsm.conf':
+    path  => '/etc/vdsm/vdsm.conf',
+    owner => 'root',
+    group => 'root',
+    mode  => '0644',
+  }
+
+  file { '/etc/vdsm/vdsm.id':
+    ensure  => present,
+    path    => '/etc/vdsm/vdsm.id',
+    source  => '/proc/sys/kernel/random/uuid',
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0444',
+    replace => false,
+    before  => Service['vdsmd'],
+  }
+
+  service { 'vdsmd':
+    ensure      => 'running',
+    name        => 'vdsmd',
+    enable      => true,
+    hasstatus   => true,
+    hasrestart  => true,
+    subscribe   => File['/etc/vdsm/vdsm.conf'],
+  }
+
+  sudo::conf { 'vdsm':
+    ensure    => 'present',
+    priority  => 50,
+    content   => template('ovirt/vdsm.sudo.erb'),
+    before    => Service['vdsmd'],
+  }
+
+  vdsm_config { 'addresses/management_port': value => $management_port }
+  vdsm_config { 'vars/ssl': value => $ssl }
+
+  if $vdsm_configs and !empty($vdsm_configs) {
+    create_resources(vdsm_config, $vdsm_configs)
+  }
+
+}

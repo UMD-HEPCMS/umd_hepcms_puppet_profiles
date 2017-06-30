@@ -1,0 +1,36 @@
+# Private class
+class profile::omsa::install {
+  if $caller_module_name != $module_name {
+    fail("Use of private class ${name} by ${caller_module_name}")
+  }
+
+  case $profile::omsa::install_type {
+    # All
+    'all': {
+      package { 'srvadmin-all':
+        ensure => 'present',
+      }
+    }
+    # Just enough for omreport
+    'minimal': {
+      package { 'srvadmin-base':
+        ensure => 'present',
+      }
+      package { 'srvadmin-storageservices':
+        ensure => 'present',
+      }
+      package { 'srvadmin-omcommon':
+        ensure => 'present',
+      }
+    }
+    # Nothing
+    default: { }
+  }
+
+  if $profile::omsa::install_firmware_tools {
+    package { 'dell_ft_install':
+      ensure  => 'present',
+    }
+  }
+
+}

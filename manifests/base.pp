@@ -2,8 +2,8 @@
 class profile::base inherits profile::params {
   # Define globals
   Firewall {
-    before  => Class['iptables::post'],
-    require => Class['iptables::pre'],
+    before  => Class['profile::iptables::post'],
+    require => Class['profile::iptables::pre'],
   }
   Exec { path => ['/bin/', '/usr/bin/', '/usr/sbin/', '/sbin' ] }
 # add in firewall rules resource (11 Aug 2015)
@@ -58,15 +58,15 @@ Class['::puppetlabs_yum'] -> Class['::facter']
 
   include epel
   include firewall
-  include iptables
+  include profile::iptables
   include ntp
   include sudo
 
   # clustershell library
-  include ::clustershell
+  include profile::clustershell
   # Modules only applied to systems based on facts - these determinations are done by the module
-  include omsa
-  include ovirt::guest
+  include profile::omsa
+  include profile::ovirt::guest
 
   $extra_packages = hiera_array('extra_packages', [])
   ensure_packages($extra_packages)
